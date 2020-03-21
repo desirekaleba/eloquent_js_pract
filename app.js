@@ -20,3 +20,11 @@ console.log(heightFactorial);*/
 /*console.log('Zb' < 'za'); // true
 */
 
+// use of isNaN
+let number = Number(prompt("Enter a number"));
+if (!Number.isNaN(number)) {
+    console.log(` The inputted number is the scare root of ${number * number}`);
+} else {
+    console.log("Enter a correct number please");
+}
+
