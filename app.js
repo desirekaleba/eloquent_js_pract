@@ -23,7 +23,7 @@ console.log(heightFactorial);*/
 // use of isNaN
 /*let number = Number(prompt("Enter a number"));
 if (!Number.isNaN(number)) {
-    console.log(` The inputted number is the scare root of ${number * number}`);
+    console.log(` The inputted number is the square root of ${number * number}`);
 } else {
     console.log("Enter a correct number please");
 }*/
