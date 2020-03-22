@@ -58,7 +58,7 @@ console.log(fizzBuzz());
 */
 
 //fizzbuzz modified
-function fizzBuzz() {
+/*function fizzBuzz() {
     let result = "";
     for (let i = 1; i <= 100; i++) {
         if (i % 15 == 0)
@@ -74,4 +74,11 @@ function fizzBuzz() {
     }
     return result += "\n";
 }
-console.log(fizzBuzz());
+console.log(fizzBuzz());*/
+
+// closure
+function multiplier(factor) {
+    return number => number * factor;
+}
+let twice = multiplier(2);
+console.log(twice(4));
