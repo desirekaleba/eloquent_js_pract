@@ -27,8 +27,8 @@ if (!Number.isNaN(number)) {
 } else {
     console.log("Enter a correct number please");
 }*/
-// exercise one, looping a triangle
-function drawTriangle(length) {
+//exercise one, looping a triangle
+/*function drawTriangle(length) {
     let shape = "";
     for (let i = 1; i <= length; i++) {
         for (let j = 1; j <= i; j++) {
@@ -38,4 +38,20 @@ function drawTriangle(length) {
     }
     return shape;
 }
-console.log(drawTriangle(7));
+console.log(drawTriangle(7));*/
+
+// exercise two, FizzBuzz
+function fizzBuzz() {
+    let result = "";
+    for (let i = 1; i <= 100; i++) {
+        if (i % 3 == 0) {
+            result += "Fizz\n"
+        } else if (i % 5 == 0) {
+            result += "Buzz\n";
+        } else {
+            result += i + "\n";
+        }
+    }
+    return result;
+}
+console.log(fizzBuzz());
