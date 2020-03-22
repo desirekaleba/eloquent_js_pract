@@ -27,4 +27,15 @@ if (!Number.isNaN(number)) {
 } else {
     console.log("Enter a correct number please");
 }*/
-
+// exercise one, looping a triangle
+function drawTriangle(length) {
+    let shape = "";
+    for (let i = 1; i <= length; i++) {
+        for (let j = 1; j <= i; j++) {
+            shape += "#";
+        }
+        shape += "\n";
+    }
+    return shape;
+}
+console.log(drawTriangle(7));
