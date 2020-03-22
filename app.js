@@ -103,7 +103,7 @@ console.log(power(5, 2));*/
     }
 }
 console.log(factorial(5));*/
-function findSolution(targetNumber) {
+/*function findSolution(targetNumber) {
     function find(current, history) {
         if (current == targetNumber) {
             return history;
@@ -116,4 +116,20 @@ function findSolution(targetNumber) {
     }
     return find(1, "1");
 }
-console.log(findSolution(142));
+console.log(findSolution(142));*/
+
+// Growing functions
+function printFarmInventory(cows, chickens) {
+    let cowString = String(cows);
+    while (cowString.length < 3) {
+        cowString = "0" + cowString;
+    }
+    console.log(`${cowString} Cows`);
+
+    let chickenString = String(chickens);
+    while (chickenString.length < 3) {
+        chickenString = "0" + chickenString;
+    }
+    console.log(`${chickenString} Chickens`);
+}
+printFarmInventory(145, 15);
