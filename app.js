@@ -72,6 +72,6 @@ function fizzBuzz() {
             result += i + "\n";
         
     }
-    return result;
+    return result += "\n";
 }
 console.log(fizzBuzz());
