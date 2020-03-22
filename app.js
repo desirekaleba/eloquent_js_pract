@@ -135,7 +135,7 @@ console.log(findSolution(142));*/
 printFarmInventory(145, 15);*/
 
 // using growing function
-function printZeroPaddedWithLabel(number, label) {
+/*function printZeroPaddedWithLabel(number, label) {
     let numberString = String(number);
     while (numberString.length < 3) {
         numberString = "0" + numberString;
@@ -149,4 +149,21 @@ function printFarmInventory(cows, chickens, pigs) {
     printZeroPaddedWithLabel(pigs, "Pigs");
 }
 
-printFarmInventory(7, 11, 243);
+printFarmInventory(7, 11, 243);*/
+
+// change printZeroPaddedWithLabel name as it's long
+function zeroPad(number, width) {
+    let string = String(number);
+    while (string.length < width) {
+        string = "0" + string;
+    }
+    return string;
+}
+
+function printFarmInventory(cows, chickens, pigs) {
+    console.log(`${zeroPad(cows, 3)} Cows`);
+    console.log(`${zeroPad(chickens, 3)} Chickens`);
+    console.log(`${zeroPad(pigs, 3)} Pigs`);
+}
+
+printFarmInventory(8, 18, 45);
