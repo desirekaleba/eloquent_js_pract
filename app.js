@@ -119,7 +119,7 @@ console.log(factorial(5));*/
 console.log(findSolution(142));*/
 
 // Growing functions
-function printFarmInventory(cows, chickens) {
+/*function printFarmInventory(cows, chickens) {
     let cowString = String(cows);
     while (cowString.length < 3) {
         cowString = "0" + cowString;
@@ -132,4 +132,21 @@ function printFarmInventory(cows, chickens) {
     }
     console.log(`${chickenString} Chickens`);
 }
-printFarmInventory(145, 15);
+printFarmInventory(145, 15);*/
+
+// using growing function
+function printZeroPaddedWithLabel(number, label) {
+    let numberString = String(number);
+    while (numberString.length < 3) {
+        numberString = "0" + numberString;
+    }
+    console.log(`${numberString} ${label}`);
+}
+
+function printFarmInventory(cows, chickens, pigs) {
+    printZeroPaddedWithLabel(cows, "Cows");
+    printZeroPaddedWithLabel(chickens, "Chickens");
+    printZeroPaddedWithLabel(pigs, "Pigs");
+}
+
+printFarmInventory(7, 11, 243);
