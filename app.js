@@ -92,7 +92,7 @@ console.log(twice(4));*/
     }
 }
 console.log(power(5, 2));*/
-function factorial(n) {
+/*function factorial(n) {
     if (n < 0) {
         return ("The number must be greater than or equal to zero");
     }
@@ -102,4 +102,18 @@ function factorial(n) {
         return n * factorial(n - 1);
     }
 }
-console.log(factorial(5));
+console.log(factorial(5));*/
+function findSolution(targetNumber) {
+    function find(current, history) {
+        if (current == targetNumber) {
+            return history;
+        } else if (current > targetNumber) {
+            return null;
+        } else {
+            return find(current + 5, `(${history} + 5)`) ||
+                    find(current * 3,  `(${history} * 3)`);
+        }
+    }
+    return find(1, "1");
+}
+console.log(findSolution(142));
