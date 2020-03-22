@@ -77,8 +77,29 @@ console.log(fizzBuzz());
 console.log(fizzBuzz());*/
 
 // closure
-function multiplier(factor) {
+/*function multiplier(factor) {
     return number => number * factor;
 }
 let twice = multiplier(2);
-console.log(twice(4));
+console.log(twice(4));*/
+
+// recursion
+/*function power(base, exponent) {
+    if (exponent == 0) {
+        return 1;
+    } else {
+        return base * power(base, exponent - 1);
+    }
+}
+console.log(power(5, 2));*/
+function factorial(n) {
+    if (n < 0) {
+        return ("The number must be greater than or equal to zero");
+    }
+    else if (n == 0 || n == 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+console.log(factorial(5));
