@@ -41,7 +41,7 @@ if (!Number.isNaN(number)) {
 console.log(drawTriangle(7));*/
 
 // exercise two, FizzBuzz
-function fizzBuzz() {
+/*function fizzBuzz() {
     let result = "";
     for (let i = 1; i <= 100; i++) {
         if (i % 3 == 0) {
@@ -51,6 +51,26 @@ function fizzBuzz() {
         } else {
             result += i + "\n";
         }
+    }
+    return result;
+}
+console.log(fizzBuzz());
+*/
+
+//fizzbuzz modified
+function fizzBuzz() {
+    let result = "";
+    for (let i = 1; i <= 100; i++) {
+        if (i % 15 == 0)
+            result += "FizzBuzz\n";
+        else if (i % 5 == 0)
+            result += "Buzz\n";
+        else if (i % 3 == 0)
+            result += "Fizz\n";
+        
+        else
+            result += i + "\n";
+        
     }
     return result;
 }
