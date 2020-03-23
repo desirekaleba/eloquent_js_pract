@@ -226,7 +226,7 @@ console.log(countBs("BeBeBBbhBcBeBBBbbbbebe"));*/
 console.log(remove([1, 4, 5, 2, 4, 5, 7, 38], 2));*/
 
 // max function using REST parameters
-function max(...numbers) {
+/*function max(...numbers) {
     let result = -Infinity;
     for(number of numbers) {
         if (number > result) {
@@ -235,4 +235,15 @@ function max(...numbers) {
     }
     return result;
 }
-console.log(max(1, 3, 4, -100, 6, 19, 5, 2));
+console.log(max(1, 3, 4, -100, 6, 19, 5, 2));*/
+
+// min function using REST parameters
+function min(...numbers) {
+    let result = +Infinity;
+    for(let number of numbers) {
+        if (number < result)
+            result = number;
+    }
+    return result;
+}
+console.log(min(4, 5, 58, 1, 8));
