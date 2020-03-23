@@ -152,7 +152,7 @@ function printFarmInventory(cows, chickens, pigs) {
 printFarmInventory(7, 11, 243);*/
 
 // change printZeroPaddedWithLabel name as it's long
-function zeroPad(number, width) {
+/*function zeroPad(number, width) {
     let string = String(number);
     while (string.length < width) {
         string = "0" + string;
@@ -166,4 +166,14 @@ function printFarmInventory(cows, chickens, pigs) {
     console.log(`${zeroPad(pigs, 3)} Pigs`);
 }
 
-printFarmInventory(8, 18, 45);
+printFarmInventory(8, 18, 45);*/
+
+// Min example
+let min = (a, b) => {
+    if (a > b) {
+        return b;
+    } else {
+        return a;
+    }
+}
+console.log(min(5, 2));
