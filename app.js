@@ -238,7 +238,7 @@ console.log(remove([1, 4, 5, 2, 4, 5, 7, 38], 2));*/
 console.log(max(1, 3, 4, -100, 6, 19, 5, 2));*/
 
 // min function using REST parameters
-function min(...numbers) {
+/*function min(...numbers) {
     let result = +Infinity;
     for(let number of numbers) {
         if (number < result)
@@ -246,4 +246,14 @@ function min(...numbers) {
     }
     return result;
 }
-console.log(min(4, 5, 58, 1, 8));
+console.log(min(4, 5, 58, 1, 8));*/
+
+// the sum of a range
+function range(start, end) {
+    let result = [];
+    while (start <= end) {
+        result.push(start++ );
+    }
+    return result;
+}
+console.log(range(2,50));
