@@ -169,11 +169,24 @@ function printFarmInventory(cows, chickens, pigs) {
 printFarmInventory(8, 18, 45);*/
 
 // Min example
-let min = (a, b) => {
+/*let min = (a, b) => {
     if (a > b) {
         return b;
     } else {
         return a;
     }
 }
-console.log(min(5, 2));
+console.log(min(5, 2));*/
+
+// even or odd
+function isEven(number) {
+    if (number < 0) {
+        return false;
+
+    } else if (number % 2 == 0 || number == 0) {
+        return true;
+    } else {
+        return isEven(number - 2);
+    }
+}
+console.log(isEven(-1));
