@@ -179,7 +179,7 @@ printFarmInventory(8, 18, 45);*/
 console.log(min(5, 2));*/
 
 // even or odd
-function isEven(number) {
+/*function isEven(number) {
     if (number < 0) {
         return false;
 
@@ -189,4 +189,30 @@ function isEven(number) {
         return isEven(number - 2);
     }
 }
-console.log(isEven(-1));
+console.log(isEven(-1));*/
+
+// Bean counting
+function countBs(str) {
+    let count = 0;
+    for(let i = 0; i < str.length; i++) {
+        if (str[i] === "B") {
+            count++;
+        }
+    }
+    return count;
+}
+console.log(countBs("BeBeBBbhBcBBBBbbbb"));
+
+// using countChar function
+// let countBs = function(str) {
+//     return countChar(str, "e");
+// }
+// function countChar(str, char) {
+//     let count = 0;
+//     for(let i = 0; i < str.length; i++) {
+//         if (str[i] === char) {
+//             count++;
+//         }
+//     }
+//     return count;
+// }
