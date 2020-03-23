@@ -249,10 +249,17 @@ console.log(max(1, 3, 4, -100, 6, 19, 5, 2));*/
 console.log(min(4, 5, 58, 1, 8));*/
 
 // the sum of a range
-function range(start, end) {
+function range(start, end, step = 1) {
     let result  = [];
-    while (start <= end) {
-        result.push(start++);
+    if (start <= end) {
+        for (let i = start; i <= end; i += step)
+            result.push(i);
+    } else if (start >= end) {
+        for(let i = start; i >= end; i += step) {
+            result.push(i);
+        }
+    } else {
+        return;
     }
     return result;
 }
@@ -265,4 +272,4 @@ function sum(numbers) {
     }
     return res;
 }
-console.log(sum(range(1, 10)));
+console.log(sum(range(10, 20, 5)));
