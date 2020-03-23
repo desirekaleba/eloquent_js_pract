@@ -250,10 +250,19 @@ console.log(min(4, 5, 58, 1, 8));*/
 
 // the sum of a range
 function range(start, end) {
-    let result = [];
+    let result  = [];
     while (start <= end) {
-        result.push(start++ );
+        result.push(start++);
     }
     return result;
 }
-console.log(range(2,50));
+
+// sum function
+function sum(numbers) {
+    let res = 0;
+    for(let number of numbers) {
+        res += number;
+    }
+    return res;
+}
+console.log(sum(range(1, 10)));
