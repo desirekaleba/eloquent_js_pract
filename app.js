@@ -192,7 +192,7 @@ console.log(min(5, 2));*/
 console.log(isEven(-1));*/
 
 // Bean counting
-function countBs(str) {
+/*function countBs(str) {
     let count = 0;
     for(let i = 0; i < str.length; i++) {
         if (str[i] === "B") {
@@ -201,18 +201,19 @@ function countBs(str) {
     }
     return count;
 }
-console.log(countBs("BeBeBBbhBcBBBBbbbb"));
+console.log(countBs("BeBeBBbhBcBBBBbbbb"));*/
 
 // using countChar function
-// let countBs = function(str) {
-//     return countChar(str, "e");
-// }
-// function countChar(str, char) {
-//     let count = 0;
-//     for(let i = 0; i < str.length; i++) {
-//         if (str[i] === char) {
-//             count++;
-//         }
-//     }
-//     return count;
-// }
+let countBs = function(str) {
+    return countChar(str, "e");
+}
+function countChar(str, char) {
+    let count = 0;
+    for(let i = 0; i < str.length; i++) {
+        if (str[i] === char) {
+            count++;
+        }
+    }
+    return count;
+}
+console.log(countBs("BeBeBBbhBcBeBBBbbbbebe"));
