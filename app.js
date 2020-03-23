@@ -204,7 +204,7 @@ console.log(isEven(-1));*/
 console.log(countBs("BeBeBBbhBcBBBBbbbb"));*/
 
 // using countChar function
-let countBs = function(str) {
+/*let countBs = function(str) {
     return countChar(str, "e");
 }
 function countChar(str, char) {
@@ -216,4 +216,11 @@ function countChar(str, char) {
     }
     return count;
 }
-console.log(countBs("BeBeBBbhBcBeBBBbbbbebe"));
+console.log(countBs("BeBeBBbhBcBeBBBbbbbebe"));*/
+
+// slice and concat in action
+function remove(array, index) {
+    return (array.slice(0, index))
+            .concat(array.slice(index + 1));
+}
+console.log(remove([1, 4, 5, 2, 4, 5, 7, 38], 2));
