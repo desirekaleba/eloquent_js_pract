@@ -219,8 +219,20 @@ function countChar(str, char) {
 console.log(countBs("BeBeBBbhBcBeBBBbbbbebe"));*/
 
 // slice and concat in action
-function remove(array, index) {
+/*function remove(array, index) {
     return (array.slice(0, index))
             .concat(array.slice(index + 1));
 }
-console.log(remove([1, 4, 5, 2, 4, 5, 7, 38], 2));
+console.log(remove([1, 4, 5, 2, 4, 5, 7, 38], 2));*/
+
+// max function using REST parameters
+function max(...numbers) {
+    let result = -Infinity;
+    for(number of numbers) {
+        if (number > result) {
+            result = number;
+        }
+    }
+    return result;
+}
+console.log(max(1, 3, 4, -100, 6, 19, 5, 2));
