@@ -371,7 +371,7 @@ console.log(Object.getPrototypeOf(Rabbit) == Function.prototype);
 console.log(Object.getPrototypeOf(weirdRabbit) == Rabbit.prototype);*/
 
 // class notation
-class Rabbit {
+/*class Rabbit {
     constructor(type) {
         this.type = type;
     }
@@ -388,4 +388,18 @@ let hello = new class {
         return "hello";
     }
 };
-console.log(hello.sayHello());
+console.log(hello.sayHello());*/
+
+// Maps
+/*let ages = new Map();
+ages.set("Boris", 39);
+ages.set("Liang", 22);
+ages.set("Deska", 21);
+console.log(`Boris is ${ages.get("Boris")}`);
+console.log("Is Deska's age known ?", ages.has("Deska"));*/
+
+// Symbol iterators
+let okIterator = "OK"[Symbol.iterator]();
+console.log(okIterator.next());
+console.log(okIterator.next());
+console.log(okIterator.next());
