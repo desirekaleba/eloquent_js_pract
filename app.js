@@ -304,10 +304,23 @@ console.log(reverseArray([1,2,3,4]));*/
 }*/
 
 //arrayMap
-function arrayMap(arr, transform) {
+/*function arrayMap(arr, transform) {
     let mapped = [];
     for (let element of arr) {
         mapped.push(transform(element));
     }
     return mapped;
+}*/
+
+// summarizing with reduce
+function reduceArr(arr, combine, start) {
+    let current = start;
+    for (let element of arr) {
+        current = combine(current, element);
+    }
+    return current;
 }
+console.log(reduceArr(
+    [1, 2, 3, 4],
+    (a, b) =>  a + b,
+    0));
