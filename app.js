@@ -265,11 +265,19 @@ function range(start, end, step = 1) {
 }
 
 // sum function
-function sum(numbers) {
+/*function sum(numbers) {
     let res = 0;
     for(let number of numbers) {
         res += number;
     }
     return res;
 }
-console.log(sum(range(10, 20, 5)));
+console.log(sum(range(10, 20, 5)));*/
+function reverseArray(arr) {
+    let rArr = [];
+    for(let i = 0; i < arr.length; i++) {
+        rArr.unshift(arr[i]);
+    }
+    return rArr;
+}
+console.log(reverseArray([1,2,3,4]));
