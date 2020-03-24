@@ -333,7 +333,7 @@ for (let char of roseDragon) {
 }*/
 
 // Recognizing text
-function countBy(items, groupName) {
+/*function countBy(items, groupName) {
     let counts = [];
     for (let item of items) {
         let name = groupName(item);
@@ -346,4 +346,14 @@ function countBy(items, groupName) {
     }
     return counts;
 }
-console.log(countBy([1, 2, 3, 4, 5, 6], n => n == 2));
+console.log(countBy([1, 2, 3, 4, 5, 6], n => n == 2));*/
+
+// prototypes
+let protoRabbit = {
+    speak(words) {
+        console.log(` ${this.type} rabbit says ${words}`)
+    }
+};
+let killerRabbit = Object.create(protoRabbit);
+killerRabbit.type = "Killer";
+killerRabbit.speak("I am the greatest");
