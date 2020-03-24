@@ -249,20 +249,20 @@ console.log(max(1, 3, 4, -100, 6, 19, 5, 2));*/
 console.log(min(4, 5, 58, 1, 8));*/
 
 // the sum of a range
-function range(start, end, step = 1) {
-    let result  = [];
-    if (start <= end) {
-        for (let i = start; i <= end; i += step)
-            result.push(i);
-    } else if (start >= end) {
-        for(let i = start; i >= end; i += step) {
-            result.push(i);
-        }
-    } else {
-        return;
-    }
-    return result;
-}
+// function range(start, end, step = 1) {
+//     let result  = [];
+//     if (start <= end) {
+//         for (let i = start; i <= end; i += step)
+//             result.push(i);
+//     } else if (start >= end) {
+//         for(let i = start; i >= end; i += step) {
+//             result.push(i);
+//         }
+//     } else {
+//         return;
+//     }
+//     return result;
+// }
 
 // sum function
 /*function sum(numbers) {
@@ -313,14 +313,21 @@ console.log(reverseArray([1,2,3,4]));*/
 }*/
 
 // summarizing with reduce
-function reduceArr(arr, combine, start) {
-    let current = start;
-    for (let element of arr) {
-        current = combine(current, element);
-    }
-    return current;
+// function reduceArr(arr, combine, start) {
+//     let current = start;
+//     for (let element of arr) {
+//         current = combine(current, element);
+//     }
+//     return current;
+// }
+// console.log(reduceArr(
+//     [1, 2, 3, 4],
+//     (a, b) =>  a + b,
+//     0));
+
+//  for/of
+let roseDragon = "🌹🐉";
+for (let char of roseDragon) {
+    //console.log(char.codePointAt(char.length - 1)); 
+    console.log(char);
 }
-console.log(reduceArr(
-    [1, 2, 3, 4],
-    (a, b) =>  a + b,
-    0));
