@@ -358,7 +358,7 @@ let killerRabbit = Object.create(protoRabbit);
 killerRabbit.type = "Killer";
 killerRabbit.speak("I am the greatest");*/
 
-function Rabbit(type) {
+/*function Rabbit(type) {
     this.type = type;
 }
 Rabbit.prototype.speak = function(words){
@@ -368,4 +368,24 @@ let weirdRabbit = new Rabbit("weird");
 weirdRabbit.speak("I am weird");
 
 console.log(Object.getPrototypeOf(Rabbit) == Function.prototype);
-console.log(Object.getPrototypeOf(weirdRabbit) == Rabbit.prototype);
+console.log(Object.getPrototypeOf(weirdRabbit) == Rabbit.prototype);*/
+
+// class notation
+class Rabbit {
+    constructor(type) {
+        this.type = type;
+    }
+    speak(words) {
+        console.log(` The ${this.type} rabbit says ${words}`);
+    }
+}
+
+let coolRabbit = new Rabbit("cool");
+coolRabbit.speak(" I am really cool");
+
+let hello = new class {
+    sayHello() {
+        return "hello";
+    }
+};
+console.log(hello.sayHello());
