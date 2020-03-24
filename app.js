@@ -291,3 +291,14 @@ console.log(reverseArray([1,2,3,4]));*/
 //     };
 // }
 // noisy(Math.min)(3, 2, 1);
+
+// filter array
+/*function filterArr(arr, test) {
+    let filtered = [];
+    for (let element of arr) {
+        if (test(element)) {
+            filtered.push(element);
+        }
+    }
+    return filtered;
+}*/
