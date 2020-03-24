@@ -425,6 +425,9 @@ class Matrix {
         this.content[y * this.width + x] = value;
     }
 }
+Matrix.prototype[Symbol.iterator] = function() {
+    return new MatrixIterator(this);
+}
 
 class MatrixIterator {
     constructor(matrix) {
