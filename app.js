@@ -326,8 +326,24 @@ console.log(reverseArray([1,2,3,4]));*/
 //     0));
 
 //  for/of
-let roseDragon = "🌹🐉";
+/*let roseDragon = "🌹🐉";
 for (let char of roseDragon) {
     //console.log(char.codePointAt(char.length - 1)); 
     console.log(char);
+}*/
+
+// Recognizing text
+function countBy(items, groupName) {
+    let counts = [];
+    for (let item of items) {
+        let name = groupName(item);
+        let known = counts.findIndex(c => c.name == name);
+        if (known == -1) {
+            counts.push({name, count: 1});
+        } else {
+            counts[known].count++;
+        }
+    }
+    return counts;
 }
+console.log(countBy([1, 2, 3, 4, 5, 6], n => n == 2));
