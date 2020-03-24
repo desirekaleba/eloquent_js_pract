@@ -302,3 +302,12 @@ console.log(reverseArray([1,2,3,4]));*/
     }
     return filtered;
 }*/
+
+//arrayMap
+function arrayMap(arr, transform) {
+    let mapped = [];
+    for (let element of arr) {
+        mapped.push(transform(element));
+    }
+    return mapped;
+}
