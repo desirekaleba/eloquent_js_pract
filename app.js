@@ -349,11 +349,23 @@ for (let char of roseDragon) {
 console.log(countBy([1, 2, 3, 4, 5, 6], n => n == 2));*/
 
 // prototypes
-let protoRabbit = {
+/*let protoRabbit = {
     speak(words) {
         console.log(` ${this.type} rabbit says ${words}`)
     }
 };
 let killerRabbit = Object.create(protoRabbit);
 killerRabbit.type = "Killer";
-killerRabbit.speak("I am the greatest");
+killerRabbit.speak("I am the greatest");*/
+
+function Rabbit(type) {
+    this.type = type;
+}
+Rabbit.prototype.speak = function(words){
+    console.log(`The ${this.type} rabbit says ${words}`);
+};
+let weirdRabbit = new Rabbit("weird");
+weirdRabbit.speak("I am weird");
+
+console.log(Object.getPrototypeOf(Rabbit) == Function.prototype);
+console.log(Object.getPrototypeOf(weirdRabbit) == Rabbit.prototype);
