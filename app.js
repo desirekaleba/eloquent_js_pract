@@ -585,7 +585,26 @@ console.log(groupIterator.next());*/
 console.log(Object.prototype.hasOwnProperty.call(map, "one"));*/
 
 // Immutable or unchangeable Objects
-let object = Object.freeze({name: "Desire"});
+/*let object = Object.freeze({name: "Desire"});
 console.log(object.name);
 object.name = "Gloire";
-console.log(object.name);
+console.log(object.name);*/
+
+// Test
+function test(label, body) {
+    if (!body()) {
+        console.log(`test failed: "${label}"`);
+    } else {
+        console.log(`test passed: "${label}"`);
+    }
+}
+
+test("convert Latin to uppercase", () => {
+    return "hello".toUpperCase() == "HELLO";
+});
+test("convert Greek text to uppercase", () => {
+    return "Χαίρετε".toUpperCase() == "ΧΑΊΡΕΤΕ";
+});
+test("don't convert case-less characters", () => {
+    return "ࢎ࠶߈ఆ௷".toUpperCase() == "ࢎ࠶߈ఆ௷";
+});
