@@ -591,7 +591,7 @@ object.name = "Gloire";
 console.log(object.name);*/
 
 // Test
-function test(label, body) {
+/*function test(label, body) {
     if (!body()) {
         console.log(`test failed: "${label}"`);
     } else {
@@ -607,4 +607,14 @@ test("convert Greek text to uppercase", () => {
 });
 test("don't convert case-less characters", () => {
     return "ࢎ࠶߈ఆ௷".toUpperCase() == "ࢎ࠶߈ఆ௷";
-});
+});*/
+
+// Error propagation
+function promptNumber(question) {
+    let result = Number(prompt(question));
+    if (Number.isNaN(result))
+        return null;
+    else
+        return result;
+}
+console.log(promptNumber("whow old are you"));
