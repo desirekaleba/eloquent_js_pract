@@ -71,3 +71,8 @@ function runRobot(state, robot, memory) {
         console.log(`Moved to ${action.direction}`);
     }
 }
+
+function randomPick(arr) {
+    let choice = Math.floor(Math.random() * arr.length);
+    return arr[choice];
+}
