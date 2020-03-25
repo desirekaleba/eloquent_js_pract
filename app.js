@@ -610,11 +610,28 @@ test("don't convert case-less characters", () => {
 });*/
 
 // Error propagation
-function promptNumber(question) {
+/*function promptNumber(question) {
     let result = Number(prompt(question));
     if (Number.isNaN(result))
         return null;
     else
         return result;
 }
-console.log(promptNumber("whow old are you"));
+console.log(promptNumber("whow old are you"));*/
+
+// Exceptions
+function promptDirection(question) {
+    let result = prompt(question);
+    if (result.toLowerCase() == "left") return "L";
+    if (result.toLowerCase() == "right") return "R";
+    throw new Error("Invalid direction: " + result);
+}
+function look() {
+    if (promptDirection("Which way") == "L") return "A house";
+    else return "Two angry bears";
+}
+try {
+    console.log("you see", look());
+} catch (error) {
+    console.log("Something went wrong:" + error);
+}
