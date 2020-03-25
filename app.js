@@ -486,7 +486,7 @@ let s_matrix = new SymmetricMatrix(5, (x, y) => `${x}, ${y}`);
 console.log(s_matrix.get(4,2));*/
 
 // vector type
-class Vec {
+/*class Vec {
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -504,4 +504,38 @@ class Vec {
         return Math.sqrt(this.x * this.x + this.y * this.y);
     }
 }
-console.log(new Vec(1, 2).minus(new Vec(2, 3)).length);
+console.log(new Vec(1, 2).minus(new Vec(2, 3)).length);*/
+
+// Groups
+class Group {
+    constructor() {
+        this.members = [];
+    }
+
+    add (value) {
+        if (!this.has(value)) {
+            this.members.push(value);
+        }
+    }
+
+    delete(value) {
+        this.members = this.members.filter(v => v !== value);
+    }
+
+    has(value) {
+        return this.members.includes(value);
+    }
+
+    static from(collection) {
+        let group = new Group();
+        for (let value of collection) {
+            group.add(value);
+        }
+        return group;
+    }
+}
+
+let group = Group.from([10, 20]);
+group.add(100);
+group.delete(10);
+console.log(group);
