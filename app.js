@@ -576,10 +576,16 @@ console.log(groupIterator.next());
 console.log(groupIterator.next());*/
 
 // borrowing a method
-let map = {
+/*let map = {
     one: true,
     two: true,
     hasOwnProperty: true
 };
 
-console.log(Object.prototype.hasOwnProperty.call(map, "one"));
+console.log(Object.prototype.hasOwnProperty.call(map, "one"));*/
+
+// Immutable or unchangeable Objects
+let object = Object.freeze({name: "Desire"});
+console.log(object.name);
+object.name = "Gloire";
+console.log(object.name);
