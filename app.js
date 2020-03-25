@@ -405,7 +405,7 @@ console.log(okIterator.next());
 console.log(okIterator.next());*/
 
 // Matrix
-class Matrix {
+/*class Matrix {
     constructor(width, height, element = (x, y) => undefined) {
         this.width = width;
         this.height = height;
@@ -483,4 +483,25 @@ class SymmetricMatrix extends Matrix {
 }
 // looping through
 let s_matrix = new SymmetricMatrix(5, (x, y) => `${x}, ${y}`);
-console.log(s_matrix.get(4,2));
+console.log(s_matrix.get(4,2));*/
+
+// vector type
+class Vec {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    plus(vector) {
+        return new Vec(this.x + vector.x, this.y + vector.y);
+    }
+
+    minus(vector) {
+        return new Vec(this.x - vector.x, this.y - vector.y);
+    }
+
+    get length() {
+        return Math.sqrt(this.x * this.x + this.y * this.y);
+    }
+}
+console.log(new Vec(1, 2).minus(new Vec(2, 3)).length);
