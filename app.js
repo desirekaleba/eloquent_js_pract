@@ -507,7 +507,7 @@ console.log(s_matrix.get(4,2));*/
 console.log(new Vec(1, 2).minus(new Vec(2, 3)).length);*/
 
 // Groups
-class Group {
+/*class Group {
     constructor() {
         this.members = [];
     }
@@ -573,4 +573,13 @@ for (let value of Group.from(["a", "b", "c"])) {
 let groupIterator = group[Symbol.iterator]();
 console.log(groupIterator.next());
 console.log(groupIterator.next());
-console.log(groupIterator.next());
+console.log(groupIterator.next());*/
+
+// borrowing a method
+let map = {
+    one: true,
+    two: true,
+    hasOwnProperty: true
+};
+
+console.log(Object.prototype.hasOwnProperty.call(map, "one"));
