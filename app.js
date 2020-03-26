@@ -694,12 +694,23 @@ console.log(box.locked); */
 
 // Regular expressions (Regex)
 let eighteenPlus = /eighteen\+/;
-console.log(eighteenPlus.test("eighteen+evice"));
-console.log(eighteenPlus.test("eighteenPlus"));
+// console.log(eighteenPlus.test("eighteen+evice"));
+// console.log(eighteenPlus.test("eighteenPlus"));
 
-let digits = /[0123456789]/;
-console.log(digits.test("097541"));
+// let digits = /[0123456789]/;
+// console.log(digits.test("097541"));
 
-let simplifiedDigits = /[0-9]/;
-console.log(simplifiedDigits.test("in 1034"));
+// let simplifiedDigits = /[0-9]/;
+// console.log(simplifiedDigits.test("in 1034"));
 
+/*
+   * @01-30-2003 15:20
+   * @the above date format can be represented as
+*/
+let date = /\d\d-\d\d-\d\d\d\d \d\d:\d\d/;
+console.log(date.test("10-30-2003 14:45"));
+
+// *@ the not operator, caret
+let notBinary = /[^01]/;
+console.log(notBinary.test("010101"));
+console.log(notBinary.test(4543));
