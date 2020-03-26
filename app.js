@@ -620,7 +620,7 @@ test("don't convert case-less characters", () => {
 console.log(promptNumber("whow old are you"));*/
 
 // Exceptions
-function promptDirection(question) {
+/*function promptDirection(question) {
     let result = prompt(question);
     if (result.toLowerCase() == "left") return "L";
     if (result.toLowerCase() == "right") return "R";
@@ -634,4 +634,24 @@ try {
     console.log("you see", look());
 } catch (error) {
     console.log("Something went wrong:" + error);
+}*/
+class MultiplicatorUnitFailure extends Error {}
+function primitiveMultiply(num1, num2) {
+    if (Math.random() < 0.2) {
+        return num1 * num2;
+    } else {
+        throw new MultiplicatorUnitFailure("Klunk");
+    }
 }
+function reliableMultiply(a, b) {
+    for (;;) {
+        try {
+            return primitiveMultiply(a, b);
+        } catch (e) {
+            if (!(e instanceof MultiplicatorUnitFailure))
+                throw e;
+        }
+    }
+    
+}
+console.log(reliableMultiply(8, 5));
