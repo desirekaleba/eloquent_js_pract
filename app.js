@@ -716,10 +716,14 @@ let eighteenPlus = /eighteen\+/;
 // console.log(notBinary.test(4543));
 
 // Matching more than one digit character
-let _digits = /\d+/;
-let _digts = /\d*/;
-console.log(_digits.test("1234"));
+/* let _digits = /\d+/;
+// let _digts = /\d*///;
+// console.log(_digits.test("1234"));
 
-let neighbor = /neighbou?r/;
-console.log(neighbor.test("neighbour"));
-console.log(neighbor.test("neighbor"));
+// let neighbor = /neighbou?r/;
+// console.log(neighbor.test("neighbour"));
+// console.log(neighbor.test("neighbor"));*/
+
+// number of time to occur
+let dateTime = /\d{1,2}-\d{1,2}-\d{4} \d{1,2}:\d{1,2}/;
+console.log(dateTime.test("1-3-1003 12:4"));
