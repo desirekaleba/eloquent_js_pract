@@ -771,3 +771,14 @@ console.log(/\bcat\b/.test("concatenate"));
 */
 let animalCount = /\b\d+ (pig|cow|chicken)s?\b/;
 console.log(animalCount.test("15 pigs"));
+
+// a decimal, binary or an hexadecimal number
+/*
+* decimal of at least 5 digits
+* binary followed by b
+* hexadecimal followed by h
+*/
+let pattern = /\b([01]+b|[\da-f]+h|\d{5,})\b/;
+console.log(pattern.test("2585"));
+console.log(pattern.test("10011011b"));
+console.log(pattern.test("1524acdfh"));
