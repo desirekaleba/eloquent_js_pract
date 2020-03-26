@@ -748,7 +748,7 @@ let quotedText = /'([^']*)'/;
 console.log(quotedText.exec("she said 'hello'"));*/
 
 // Date and time
-console.log(new Date());
+/*console.log(new Date());
 console.log(new Date(1998, 5, 18, 12, 59, 59, 999).getTime());
 console.log(new Date(898163999999));
 
@@ -757,4 +757,17 @@ function getDate(str) {
     return new Date(year, month - 1, day, hour, minutes, seconds);
 }
 console.log("\n\n");
-console.log(getDate("1-30-2003 12:30:45"));
+console.log(getDate("1-30-2003 12:30:45"));*/
+
+// Words and String boundaries
+console.log(/cat/.test("concatenate"));
+// → true
+console.log(/\bcat\b/.test("concatenate"));
+// → false
+/* 
+    * test if a text  contains not only a number followed by 
+    * any of these words; pig, cow or chicken or their
+    *  plural
+*/
+let animalCount = /\b\d+ (pig|cow|chicken)s?\b/;
+console.log(animalCount.test("15 pigs"));
