@@ -715,7 +715,11 @@ let eighteenPlus = /eighteen\+/;
 // console.log(notBinary.test("010101"));
 // console.log(notBinary.test(4543));
 
-// Matching more than one digit
+// Matching more than one digit character
 let _digits = /\d+/;
 let _digts = /\d*/;
 console.log(_digits.test("1234"));
+
+let neighbor = /neighbou?r/;
+console.log(neighbor.test("neighbour"));
+console.log(neighbor.test("neighbor"));
