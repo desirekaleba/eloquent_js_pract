@@ -727,3 +727,8 @@ let eighteenPlus = /eighteen\+/;
 // number of time to occur
 let dateTime = /\d{1,2}-\d{1,2}-\d{4} \d{1,2}:\d{1,2}/;
 console.log(dateTime.test("1-3-1003 12:4"));
+
+// Five or more times can be represented as followed
+let fiveOrMore = /\d{5,}/;
+console.log(fiveOrMore.test("444"));
+console.log(fiveOrMore.test("444444")); 
