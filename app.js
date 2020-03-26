@@ -725,10 +725,14 @@ let eighteenPlus = /eighteen\+/;
 // console.log(neighbor.test("neighbor"));*/
 
 // number of time to occur
-let dateTime = /\d{1,2}-\d{1,2}-\d{4} \d{1,2}:\d{1,2}/;
+/*let dateTime = /\d{1,2}-\d{1,2}-\d{4} \d{1,2}:\d{1,2}/;
 console.log(dateTime.test("1-3-1003 12:4"));
 
 // Five or more times can be represented as followed
 let fiveOrMore = /\d{5,}/;
 console.log(fiveOrMore.test("444"));
-console.log(fiveOrMore.test("444444")); 
+console.log(fiveOrMore.test("444444")); */
+
+// Grouping sub-expressions
+let cartoonCrying = /boo+(hoo+)+/i;
+console.log(cartoonCrying.test("BooHoooohoohooo"));
