@@ -738,11 +738,23 @@ console.log(fiveOrMore.test("444444")); */
 console.log(cartoonCrying.test("BooHoooohoohooo"));*/
 
 // Matches and Groups
-let match = /\d+/.exec("one two 100 200");
+/*let match = /\d+/.exec("one two 100 200");
 console.log(match);
 console.log(match.index);
 
 console.log("one two three 100".match(/\d+/));
 let quotedText = /'([^']*)'/;
 
-console.log(quotedText.exec("she said 'hello'"));
+console.log(quotedText.exec("she said 'hello'"));*/
+
+// Date and time
+console.log(new Date());
+console.log(new Date(1998, 5, 18, 12, 59, 59, 999).getTime());
+console.log(new Date(898163999999));
+
+function getDate(str) {
+    let [_, month, day, year, hour, minutes, seconds] = /(\d{1,2})-(\d{1,2})-(\d{4}) (\d{1,2}):(\d{1,2}):(\d{1,2})/.exec(str);
+    return new Date(year, month - 1, day, hour, minutes, seconds);
+}
+console.log("\n\n");
+console.log(getDate("1-30-2003 12:30:45"));
