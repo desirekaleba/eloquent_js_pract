@@ -635,7 +635,8 @@ try {
 } catch (error) {
     console.log("Something went wrong:" + error);
 }*/
-class MultiplicatorUnitFailure extends Error {}
+
+/*class MultiplicatorUnitFailure extends Error {}
 function primitiveMultiply(num1, num2) {
     if (Math.random() < 0.2) {
         return num1 * num2;
@@ -654,4 +655,39 @@ function reliableMultiply(a, b) {
     }
     
 }
-console.log(reliableMultiply(8, 5));
+console.log(reliableMultiply(8, 5));*/
+
+// The locked box
+const box = {
+    locked: true,
+    unlock() {
+        this.locked = false;
+    },
+    lock() {
+        this.locked = true;
+    },
+    _content: [],
+    get content() {
+        if (!this.locked) {
+            return this._content;
+        } else {
+            throw new Error("Content Locked, please make sure you have the right permission");
+        }
+    }
+};
+
+function withBoxUnlock(fn) {
+    if (box.locked) {
+        box.unlock();
+    } 
+    try {
+        return fn();
+    }
+    finally {
+        box.lock();
+    }
+}
+
+console.log(withBoxUnlock(() => box.content.push(1, 2, 3, 4)));
+console.log(withBoxUnlock(() => box.content));
+console.log(box.locked);
