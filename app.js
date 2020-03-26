@@ -697,3 +697,9 @@ let eighteenPlus = /eighteen\+/;
 console.log(eighteenPlus.test("eighteen+evice"));
 console.log(eighteenPlus.test("eighteenPlus"));
 
+let digits = /[0123456789]/;
+console.log(digits.test("097541"));
+
+let simplifiedDigits = /[0-9]/;
+console.log(simplifiedDigits.test("in 1034"));
+
