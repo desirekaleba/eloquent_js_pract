@@ -704,13 +704,18 @@ let eighteenPlus = /eighteen\+/;
 // console.log(simplifiedDigits.test("in 1034"));
 
 /*
-   * @01-30-2003 15:20
-   * @the above date format can be represented as
-*/
-let date = /\d\d-\d\d-\d\d\d\d \d\d:\d\d/;
-console.log(date.test("10-30-2003 14:45"));
+//    * @01-30-2003 15:20
+//    * @the above date format can be represented as
+// */
+// let date = /\d\d-\d\d-\d\d\d\d \d\d:\d\d/;
+// console.log(date.test("10-30-2003 14:45"));
 
-// *@ the not operator, caret
-let notBinary = /[^01]/;
-console.log(notBinary.test("010101"));
-console.log(notBinary.test(4543));
+// // *@ the not operator, caret
+// let notBinary = /[^01]/;
+// console.log(notBinary.test("010101"));
+// console.log(notBinary.test(4543));
+
+// Matching more than one digit
+let _digits = /\d+/;
+let _digts = /\d*/;
+console.log(_digits.test("1234"));
