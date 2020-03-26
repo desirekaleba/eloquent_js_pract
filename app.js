@@ -734,5 +734,15 @@ console.log(fiveOrMore.test("444"));
 console.log(fiveOrMore.test("444444")); */
 
 // Grouping sub-expressions
-let cartoonCrying = /boo+(hoo+)+/i;
-console.log(cartoonCrying.test("BooHoooohoohooo"));
+/*let cartoonCrying = /boo+(hoo+)+/i;
+console.log(cartoonCrying.test("BooHoooohoohooo"));*/
+
+// Matches and Groups
+let match = /\d+/.exec("one two 100 200");
+console.log(match);
+console.log(match.index);
+
+console.log("one two three 100".match(/\d+/));
+let quotedText = /'([^']*)'/;
+
+console.log(quotedText.exec("she said 'hello'"));
