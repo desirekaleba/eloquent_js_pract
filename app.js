@@ -693,7 +693,7 @@ console.log(withBoxUnlock(() => box.content));
 console.log(box.locked); */
 
 // Regular expressions (Regex)
-let eighteenPlus = /eighteen\+/;
+//let eighteenPlus = /eighteen\+/;
 // console.log(eighteenPlus.test("eighteen+evice"));
 // console.log(eighteenPlus.test("eighteenPlus"));
 
@@ -760,7 +760,7 @@ console.log("\n\n");
 console.log(getDate("1-30-2003 12:30:45"));*/
 
 // Words and String boundaries
-console.log(/cat/.test("concatenate"));
+/*console.log(/cat/.test("concatenate"));
 // → true
 console.log(/\bcat\b/.test("concatenate"));
 // → false
@@ -769,7 +769,7 @@ console.log(/\bcat\b/.test("concatenate"));
     * any of these words; pig, cow or chicken or their
     *  plural
 */
-let animalCount = /\b\d+ (pig|cow|chicken)s?\b/;
+/*let animalCount = /\b\d+ (pig|cow|chicken)s?\b/;
 console.log(animalCount.test("15 pigs"));
 
 // a decimal, binary or an hexadecimal number
@@ -778,7 +778,24 @@ console.log(animalCount.test("15 pigs"));
 * binary followed by b
 * hexadecimal followed by h
 */
-let pattern = /\b([01]+b|[\da-f]+h|\d{5,})\b/;
+/*let pattern = /\b([01]+b|[\da-f]+h|\d{5,})\b/;
 console.log(pattern.test("2585"));
 console.log(pattern.test("10011011b"));
-console.log(pattern.test("1524acdfh"));
+console.log(pattern.test("1524acdfh"));*/
+
+// The replace Method
+console.log("papa".replace("p","m"));
+
+console.log("papa".replace(/[a]/, "m"));
+//* when a regular expression ends 
+//* in /g i.e apply the match globally
+// the below eg returns mama
+console.log("papa".replace(/[p]/g, "m"));
+// this removes the commas and return Firstname Lastname
+// yet it was in Lastname, Firstname format
+console.log("Liskov, Barbara\nMcCarthy, John\nWadler, Philip"
+    .replace(/(\w+), (\w+)/g, "$2 $1"));
+
+// passing the function as the second argument to replace
+let s = "the cia and fbi";
+console.log(s.replace(/\b(cia|fbi)\b/g, str => str.toUpperCase()));
