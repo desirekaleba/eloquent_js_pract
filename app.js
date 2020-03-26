@@ -658,7 +658,7 @@ function reliableMultiply(a, b) {
 console.log(reliableMultiply(8, 5));*/
 
 // The locked box
-const box = {
+/*const box = {
     locked: true,
     unlock() {
         this.locked = false;
@@ -690,4 +690,10 @@ function withBoxUnlock(fn) {
 
 console.log(withBoxUnlock(() => box.content.push(1, 2, 3, 4)));
 console.log(withBoxUnlock(() => box.content));
-console.log(box.locked);
+console.log(box.locked); */
+
+// Regular expressions (Regex)
+let eighteenPlus = /eighteen\+/;
+console.log(eighteenPlus.test("eighteen+evice"));
+console.log(eighteenPlus.test("eighteenPlus"));
+
