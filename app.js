@@ -852,7 +852,7 @@ console.log(pattern.test("1524acdfh"));*/
 //     console.log(match + " Found" + " at " + match.index);
 // }
 
-// Parsing the INI file
+// Parsing an INI file
 function parseINI(str) {
     let result = {};
     let section = result;
