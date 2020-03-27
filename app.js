@@ -853,7 +853,7 @@ console.log(pattern.test("1524acdfh"));*/
 // }
 
 // Parsing an INI file
-function parseINI(iniFile) {
+/*function parseINI(iniFile) {
     let result = {};
     let section = result;
 
@@ -890,4 +890,20 @@ fullname=Davaeorn
 type=evil wizard
 outputdir=/home/marijn/enemies/davaeorn`;
 
-console.log(parseINI(criminals));
+console.log(parseINI(criminals));*/
+
+// internal character
+console.log(/🍎{3}/.test("🍎🍎🍎"));
+// → false
+console.log(/<.>/.test("<🌹>"));
+// → false
+console.log(/<.>/u.test("<🌹>"));
+// → true
+console.log(/\p{Script=Greek}/u.test("α"));
+// → true
+console.log(/\p{Script=Arabic}/u.test("α"));
+// → false
+console.log(/\p{Alphabetic}/u.test("α"));
+// → true
+console.log(/\p{Alphabetic}/u.test("!"));
+// → false
