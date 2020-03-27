@@ -816,10 +816,10 @@ console.log(pattern.test("1524acdfh"));*/
 // Creed
 // remove comments from js code
 function stripComments(code) {
-    return code.replace(/\/\/.*|\/\*[^]*\*\//g, "");
+    return code.replace(/\/\/.*|\/\*[^]*?\*\//g, "");
 }
 console.log(stripComments("1 + /* 2 */3"));
 console.log(stripComments("x = 10;// ten!!"));
 // → x = 10;
 console.log(stripComments("1 /* a */+/* b */ 1"));
-// → 1 1
+// → 1 + 1
