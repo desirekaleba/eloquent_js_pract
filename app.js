@@ -857,7 +857,7 @@ function parseINI(str) {
     let result = {};
     let section = result;
 
-    str.split(/\r?\n/)
+    String(str).split(/\r?\n/)
         .forEach(line => {
             if (match = line.match(/^(\w+)=(.*)$/)) {
                 section[match[1]] = match[2];
