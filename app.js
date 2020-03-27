@@ -892,7 +892,7 @@ outputdir=/home/marijn/enemies/davaeorn`;
 
 console.log(parseINI(criminals));*/
 
-// internal character
+// internal characters
 console.log(/🍎{3}/.test("🍎🍎🍎"));
 // → false
 console.log(/<.>/.test("<🌹>"));
