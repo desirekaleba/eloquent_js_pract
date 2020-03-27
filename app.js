@@ -825,21 +825,29 @@ console.log(pattern.test("1524acdfh"));*/
 // // → 1 + 1
 
 // Dinamically creating RegExp objects
-let name = "harry";
-let text = "Harry is a suspicious character";
-let regexp = new RegExp("\\b(" + name + ")\\b", "gi");
-console.log(text.replace(regexp, "_$1_"));
+// let name = "harry";
+// let text = "Harry is a suspicious character";
+// let regexp = new RegExp("\\b(" + name + ")\\b", "gi");
+// console.log(text.replace(regexp, "_$1_"));
 
-let name2 = "dea+hl[]rd";
-let text2 = "This dea+hl[]rd guy is super annoying.";
-let escaped = name2.replace(/[\\[.+*?(){|^$]/g, "\\$&");
-let regexp2 = new RegExp("\\b" + escaped + "\\b", "gi");
-console.log(text2.replace(regexp2, "_$&_"));
+// let name2 = "dea+hl[]rd";
+// let text2 = "This dea+hl[]rd guy is super annoying.";
+// let escaped = name2.replace(/[\\[.+*?(){|^$]/g, "\\$&");
+// let regexp2 = new RegExp("\\b" + escaped + "\\b", "gi");
+// console.log(text2.replace(regexp2, "_$&_"));
 
-let digit = /\d/g;
-console.log(digit.exec("here it is: 1"));
-// → ["1"]
-console.log(digit.exec("and now: 1"));
-// → null
-console.log("Banana".match(/an/g));
-// → ["an", "an"]
+// let digit = /\d/g;
+// console.log(digit.exec("here it is: 1"));
+// // → ["1"]
+// console.log(digit.exec("and now: 1"));
+// // → null
+// console.log("Banana".match(/an/g));
+// // → ["an", "an"]
+
+// Looping over matches
+let input = "A string with 3 numbers in it... 42 and 88.";
+let number = /\b\d+\b/g;
+let match;
+while (match = number.exec(input)) {
+    console.log(match + " Found" + " at " + match.index);
+}
