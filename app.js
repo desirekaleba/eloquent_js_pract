@@ -815,11 +815,31 @@ console.log(pattern.test("1524acdfh"));*/
 
 // Creed
 // remove comments from js code
-function stripComments(code) {
-    return code.replace(/\/\/.*|\/\*[^]*?\*\//g, "");
-}
-console.log(stripComments("1 + /* 2 */3"));
-console.log(stripComments("x = 10;// ten!!"));
-// → x = 10;
-console.log(stripComments("1 /* a */+/* b */ 1"));
-// → 1 + 1
+// function stripComments(code) {
+//     return code.replace(/\/\/.*|\/\*[^]*?\*\//g, "");
+// }
+// console.log(stripComments("1 + /* 2 */3"));
+// console.log(stripComments("x = 10;// ten!!"));
+// // → x = 10;
+// console.log(stripComments("1 /* a */+/* b */ 1"));
+// // → 1 + 1
+
+// Dinamically creating RegExp objects
+let name = "harry";
+let text = "Harry is a suspicious character";
+let regexp = new RegExp("\\b(" + name + ")\\b", "gi");
+console.log(text.replace(regexp, "_$1_"));
+
+let name2 = "dea+hl[]rd";
+let text2 = "This dea+hl[]rd guy is super annoying.";
+let escaped = name2.replace(/[\\[.+*?(){|^$]/g, "\\$&");
+let regexp2 = new RegExp("\\b" + escaped + "\\b", "gi");
+console.log(text2.replace(regexp2, "_$&_"));
+
+let digit = /\d/g;
+console.log(digit.exec("here it is: 1"));
+// → ["1"]
+console.log(digit.exec("and now: 1"));
+// → null
+console.log("Banana".match(/an/g));
+// → ["an", "an"]
