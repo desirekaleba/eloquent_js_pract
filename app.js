@@ -784,31 +784,42 @@ console.log(pattern.test("10011011b"));
 console.log(pattern.test("1524acdfh"));*/
 
 // The replace Method
-console.log("papa".replace("p","m"));
+// console.log("papa".replace("p","m"));
 
-console.log("papa".replace(/[a]/, "m"));
-//* when a regular expression ends 
-//* in /g i.e apply the match globally
-// the below eg returns mama
-console.log("papa".replace(/[p]/g, "m"));
-// this removes the commas and return Firstname Lastname
-// yet it was in Lastname, Firstname format
-console.log("Liskov, Barbara\nMcCarthy, John\nWadler, Philip"
-    .replace(/(\w+), (\w+)/g, "$2 $1"));
+// console.log("papa".replace(/[a]/, "m"));
+// //* when a regular expression ends 
+// //* in /g i.e apply the match globally
+// // the below eg returns mama
+// console.log("papa".replace(/[p]/g, "m"));
+// // this removes the commas and return Firstname Lastname
+// // yet it was in Lastname, Firstname format
+// console.log("Liskov, Barbara\nMcCarthy, John\nWadler, Philip"
+//     .replace(/(\w+), (\w+)/g, "$2 $1"));
 
-// passing the function as the second argument to replace
-let s = "the cia and fbi";
-console.log(s.replace(/\b(cia|fbi)\b/g, str => str.toUpperCase()));
+// // passing the function as the second argument to replace
+// let s = "the cia and fbi";
+// console.log(s.replace(/\b(cia|fbi)\b/g, str => str.toUpperCase()));
 
-//
-let stock = "1 lemon, 2 cabbages, and 101 eggs";
-function minusOne(match, amount, unit) {
-    amount = Number(amount) - 1;
-    if (amount == 1) {
-        unit = unit.slice(0, unit.length - 1);
-    } else if (amount == 0) {
-        amount = "no";
-    }
-    return amount + " " + unit;
+// //
+// let stock = "1 lemon, 2 cabbages, and 101 eggs";
+// function minusOne(match, amount, unit) {
+//     amount = Number(amount) - 1;
+//     if (amount == 1) {
+//         unit = unit.slice(0, unit.length - 1);
+//     } else if (amount == 0) {
+//         amount = "no";
+//     }
+//     return amount + " " + unit;
+// }
+// console.log(stock.replace(/(\d+) (\w+)/g, minusOne));
+
+// Creed
+// remove comments from js code
+function stripComments(code) {
+    return code.replace(/\/\/.*|\/\*[^]*\*\//g, "");
 }
-console.log(stock.replace(/(\d+) (\w+)/g, minusOne));
+console.log(stripComments("1 + /* 2 */3"));
+console.log(stripComments("x = 10;// ten!"));
+// → x = 10;
+console.log(stripComments("1 /* a */+/* b */ 1"));
+// → 1 1
