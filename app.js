@@ -996,6 +996,8 @@ console.log(weekDay.name(weekDay.number("Sunday")));*/
 // console.log(x);
 
 // Using the Function constructor
-let plusOne = Function("n", "return n + 1");
-console.log(plusOne(4));
-console.log(plusOne(5));
+// let plusOne = Function("n", "return n + 1");
+// console.log(plusOne(4));
+// console.log(plusOne(5));
+
+// Using CommonJS require and exports
