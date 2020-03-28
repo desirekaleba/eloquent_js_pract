@@ -1005,5 +1005,16 @@ console.log(weekDay.name(weekDay.number("Sunday")));*/
 // console.log(formatDate(new Date(2017, 9, 13), "dddd the Do"));
 
 // ECMAScript modules
-import formatDate from "./format-date";
-console.log(formatDate((new Date(2017, 9, 13), "dddd the Do")));
+// import formatDate from "./format-date";
+// console.log(formatDate((new Date(2017, 9, 13), "dddd the Do")));
+
+// Building, Bundling and Minifying
+/* 
+* tools that roll their programs (which they
+* painstakingly split into modules) back into a single big file before they publish
+* it to the Web. Such tools are called bundlers.
+
+* Minifiers, These are tools that take
+* a JavaScript program and make it smaller by automatically removing comments and whitespace, renaming bindings, and replacing pieces of code with
+* equivalent code that take up less space.*/
+
