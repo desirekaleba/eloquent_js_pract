@@ -956,20 +956,32 @@ console.log(parseINI(criminals));*/
 // console.log(text.replace(/(^|\W)'|'(\W|$)/g, ""));
 
 // Numbers again
-let number = /^[+\-]?(\d+(\.\d*)?|\.\d+)([eE][+\-]?\d+)?$/;
+// let number = /^[+\-]?(\d+(\.\d*)?|\.\d+)([eE][+\-]?\d+)?$/;
 
-// Tests:
-for (let str of ["1", "-1", "+15", "1.55", ".5", "5.",
-        "1.3e2", "1E-4", "1e+12"
-    ]) {
-    if (!number.test(str)) {
-        console.log(`Failed to match '${str}'`);
-    }
-}
-for (let str of ["1a", "+-1", "1.2.3", "1+1", "1e4.5",
-        ".5.", "1f5", "."
-    ]) {
-    if (number.test(str)) {
-        console.log(`Incorrectly accepted '${str}'`);
-    }
-}
+// // Tests:
+// for (let str of ["1", "-1", "+15", "1.55", ".5", "5.",
+//         "1.3e2", "1E-4", "1e+12"
+//     ]) {
+//     if (!number.test(str)) {
+//         console.log(`Failed to match '${str}'`);
+//     }
+// }
+// for (let str of ["1a", "+-1", "1.2.3", "1+1", "1e4.5",
+//         ".5.", "1f5", "."
+//     ]) {
+//     if (number.test(str)) {
+//         console.log(`Incorrectly accepted '${str}'`);
+//     }
+// }
+
+// * Modules
+// improvised modules
+const weekDay = function() {
+    const names = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    return {
+        name(number) {return names[number];},
+        number(name) {return names.indexOf(name);}
+    };
+}();
+console.log(weekDay.name(weekDay.number("Sunday")));
