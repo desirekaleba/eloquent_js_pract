@@ -1156,12 +1156,20 @@ console.log(weekDay.name(weekDay.number("Sunday")));*/
 // }
 
 // Generators
-function* powers(n) {
-    for (let current = n; ; current *= n) {
-        yield current;
-    }
-}
-for (let power of powers(2)) {
-    if (power > 510) break;
-    console.log(power);
-}
+// function* powers(n) {
+//     for (let current = n; ; current *= n) {
+//         yield current;
+//     }
+// }
+// for (let power of powers(2)) {
+//     if (power > 510) break;
+//     console.log(power);
+// }
+
+// The Event Loop
+let start = Date.now();
+setTimeout(() => {
+    console.log("Timeout ran at", Date.now() - start);
+}, 20);
+while (Date.now() < start + 50) {}
+console.log("Wasted time until", Date.now() - start);
