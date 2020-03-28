@@ -987,10 +987,15 @@ console.log(parseINI(criminals));*/
 console.log(weekDay.name(weekDay.number("Sunday")));*/
 
 // evaluating data as code
-const x = 1;
-function evalAndReturnX(code) {
-    eval(code);
-    return x;
-}
-console.log(evalAndReturnX("var x = 2"));
-console.log(x);
+// const x = 1;
+// function evalAndReturnX(code) {
+//     eval(code);
+//     return x;
+// }
+// console.log(evalAndReturnX("var x = 2"));
+// console.log(x);
+
+// Using the Function constructor
+let plusOne = Function("n", "return n + 1");
+console.log(plusOne(4));
+console.log(plusOne(5));
