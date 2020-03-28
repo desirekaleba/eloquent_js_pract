@@ -1177,3 +1177,5 @@ console.log(weekDay.name(weekDay.number("Sunday")));*/
 Promise.resolve("Promise Done")
     .then(console.log);
 console.log("Me first");
+
+// Asynchronous bugs
