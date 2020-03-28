@@ -1018,3 +1018,25 @@ console.log(weekDay.name(weekDay.number("Sunday")));*/
 * a JavaScript program and make it smaller by automatically removing comments and whitespace, renaming bindings, and replacing pieces of code with
 * equivalent code that take up less space.*/
 
+// Asynchronous programming
+// * Callbacks
+
+
+// * Promises
+// let fifteen = Promise.resolve(15);
+// fifteen.then((value) => console.log(`Got ${value}`));
+// function storage(nest, name) {
+//     return new Promise(resolve => {
+//         nest.readStorage(name, result => resolve(result));
+//     });
+// }
+// storage(BigOk, "enemies")
+//     .then(value => console.log(value));
+
+new Promise((_, reject) => reject(new Error("Fail")))
+    .then(value => console.log("Handler 1"))
+    .catch(reason => {
+        console.log("Caught failure " + reason);
+        return "Nothing";
+    })
+    .then(value => console.log("Handler 2", value));
