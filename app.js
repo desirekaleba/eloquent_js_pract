@@ -976,7 +976,7 @@ console.log(parseINI(criminals));*/
 
 // * Modules
 // improvised modules
-const weekDay = function() {
+/*const weekDay = function() {
     const names = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     return {
@@ -984,4 +984,13 @@ const weekDay = function() {
         number(name) {return names.indexOf(name);}
     };
 }();
-console.log(weekDay.name(weekDay.number("Sunday")));
+console.log(weekDay.name(weekDay.number("Sunday")));*/
+
+// evaluating data as code
+const x = 1;
+function evalAndReturnX(code) {
+    eval(code);
+    return x;
+}
+console.log(evalAndReturnX("var x = 2"));
+console.log(x);
