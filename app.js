@@ -1001,3 +1001,5 @@ console.log(weekDay.name(weekDay.number("Sunday")));*/
 // console.log(plusOne(5));
 
 // Using CommonJS require and exports
+import { formatDate } from "./format-date";
+console.log(formatDate(new Date(2017, 9, 13), "dddd the Do"));
