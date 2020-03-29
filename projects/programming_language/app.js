@@ -1,4 +1,4 @@
-// Parse Expression
+// * Parse Expression
 function parseExpression(program) {
     program = skipSpace(program);
     let match, expr;
@@ -23,12 +23,14 @@ function parseExpression(program) {
     return parseApply(expr, program.slice(match[0].length));
 }
 
+// * skipSpace
 function skipSpace(str) {
     let first = str.search(/\S/);
     if (first == -1) return "";
     return str.slice(first);
 }
 
+// * parseApply
 function parseApply(expr, program) {
     program = skipSpace(program);
     if (program[0] != "(") {
@@ -57,6 +59,7 @@ function parseApply(expr, program) {
     return parseApply(expr, program.slice(1));
 }
 
+// * parse
 function parse(program) {
     let {expr, rest} = parseExpression(program);
     if (skipSpace(rest).length > 0) {
@@ -66,7 +69,7 @@ function parse(program) {
 }
 console.log(parse("+(a, 10)"));
 
-// the evaluator
+// * the evaluator
 const specialForms = Object.create(null);
 
 function evaluate(expr, scope) {
@@ -93,7 +96,7 @@ function evaluate(expr, scope) {
     }
 }
 
-// Special Forms
+//  * Special Forms
 // if
 specialForms.if = (args, scope) => {
     if (args.length != 3) {
@@ -123,5 +126,15 @@ specialForms.do = (args, scope) => {
     for (let arg of args) {
         value = evaluate(arg, scope);
     }
+    return value;
+};
+
+// define
+specialForms.define = (args, scope) => {
+    if (args.length != 2 || args[0].type != "word") {
+        throw new SyntaxError("Incorrect use of define");
+    }
+    let value = evaluate(args[1], scope);
+    scope[args[0].name] = value;
     return value;
 };
