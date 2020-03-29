@@ -1174,7 +1174,6 @@ console.log(weekDay.name(weekDay.number("Sunday")));*/
 // while (Date.now() < start + 50) {}
 // console.log("Wasted time until", Date.now() - start);
 
-<<<<<<< HEAD
 // Promise.resolve("Promise Done")
 //     .then(console.log);
 // console.log("Me first");
@@ -1215,10 +1214,3 @@ function Promise_all(promises) {
             resolve(results);
     });
 }
-=======
-Promise.resolve("Promise Done")
-    .then(console.log);
-console.log("Me first");
-
-// Asynchronous bugs
->>>>>>> develop
