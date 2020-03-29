@@ -25,9 +25,11 @@ function parseExpression(program) {
 
 // * skipSpace
 function skipSpace(str) {
-    let first = str.search(/\S/);
-    if (first == -1) return "";
-    return str.slice(first);
+    // let first = str.search(/\S/);
+    // if (first == -1) return "";
+    // return str.slice(first);
+    let skippable = str.match(/^(\s|#.*|\/\/.*)*/);
+    return str.slice(skippable[0].length);
 }
 
 // * parseApply
@@ -236,3 +238,5 @@ run(`
 do(define(f, fun(a, fun(b, +(a, b)))),
 print(f(4)(5)))
 `);
+
+console.log(parse("// hello i am the 1st comment type\nx\n# i am the second comment type"));
