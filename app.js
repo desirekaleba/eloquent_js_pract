@@ -1174,6 +1174,26 @@ console.log(weekDay.name(weekDay.number("Sunday")));*/
 // while (Date.now() < start + 50) {}
 // console.log("Wasted time until", Date.now() - start);
 
-Promise.resolve("Promise Done")
-    .then(console.log);
-console.log("Me first");
+// Promise.resolve("Promise Done")
+//     .then(console.log);
+// console.log("Me first");
+
+// Tracking the scalpel
+async function locateScapel(nest) {
+    let current = nest.name;
+    for (;;) {
+        let next = await anyStorage(nest, current, "scalpel");
+        if (next == current) return current;
+        current = next;
+    }
+}
+function locateScalpel2(nest) {
+    function loop(current) {
+        return anyStorage(nest, current, "scalpel")
+            .then(next => {
+                if (next == current) return current;
+                else return loop(next);
+            });
+    }
+    return loop(nest.name);
+}
