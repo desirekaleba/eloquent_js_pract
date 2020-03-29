@@ -158,3 +158,8 @@ topScope.print = value => {
     console.log(value);
     return value;
 };
+
+// Run
+function run(program) {
+    return evaluate(parse(program), Object.create(topScope));
+}
