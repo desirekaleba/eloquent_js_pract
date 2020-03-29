@@ -105,7 +105,7 @@ specialForms.if = (args, scope) => {
     }
 };
 
-//while
+// while
 specialForms.while = (args, scope) => {
     if (args.length != 2) {
         throw new SyntaxError("Wrong number of args to while");
@@ -115,4 +115,13 @@ specialForms.while = (args, scope) => {
     }
 
     return false;
+};
+
+// do
+specialForms.do = (args, scope) => {
+    let value = false;
+    for (let arg of args) {
+        value = evaluate(arg, scope);
+    }
+    return value;
 };
