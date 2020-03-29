@@ -1207,10 +1207,37 @@ function Promise_all(promises) {
             promises[i].then(result => {
                 results[i] = result;
                 pending--;
-                if (pending == 0) resolve(results);
+                if (pending == 0)
+                    resolve(results);
             }).catch(reject);
         }
         if (promises.length == 0)
             resolve(results);
+        
     });
 }
+
+Promise_all([])
+    .then(arr => {
+        console.log("This should return []:", arr);
+    });
+
+function soon(val) {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(val), Math.random() * 500);
+    });
+}
+
+Promise_all([soon(1), soon(2), soon(3)])
+    .then(array => {
+        console.log("This should be [1, 2, 3]:", array);
+    });
+
+Promise_all([soon(1), Promise.reject("X"), soon(3)])
+.then(arr => {
+    console.log("We should not get here");
+}).catch(err => {
+    if (err != "X") {
+        console.log("Unexpected failure:", err);
+    }
+});
