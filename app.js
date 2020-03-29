@@ -1179,21 +1179,38 @@ console.log(weekDay.name(weekDay.number("Sunday")));*/
 // console.log("Me first");
 
 // Tracking the scalpel
-async function locateScapel(nest) {
-    let current = nest.name;
-    for (;;) {
-        let next = await anyStorage(nest, current, "scalpel");
-        if (next == current) return current;
-        current = next;
-    }
-}
-function locateScalpel2(nest) {
-    function loop(current) {
-        return anyStorage(nest, current, "scalpel")
-            .then(next => {
-                if (next == current) return current;
-                else return loop(next);
-            });
-    }
-    return loop(nest.name);
+// async function locateScapel(nest) {
+//     let current = nest.name;
+//     for (;;) {
+//         let next = await anyStorage(nest, current, "scalpel");
+//         if (next == current) return current;
+//         current = next;
+//     }
+// }
+// function locateScalpel2(nest) {
+//     function loop(current) {
+//         return anyStorage(nest, current, "scalpel")
+//             .then(next => {
+//                 if (next == current) return current;
+//                 else return loop(next);
+//             });
+//     }
+//     return loop(nest.name);
+// }
+
+// Promise.all
+function Promise_all(promises) {
+    return new Promise((resolve, reject) => {
+        let results = [];
+        let pending = promises.length;
+        for (let i = 0; i < promises.length; i++) {
+            promises[i].then(result => {
+                results[i] = result;
+                pending--;
+                if (pending == 0) resolve(results);
+            }).catch(reject);
+        }
+        if (promises.length == 0)
+            resolve(results);
+    });
 }
