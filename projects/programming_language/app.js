@@ -138,3 +138,17 @@ specialForms.define = (args, scope) => {
     scope[args[0].name] = value;
     return value;
 };
+
+
+// * the environment
+const topScope = Object.create(null);
+topScope.true = true;
+topScope.false = false;
+
+// try running a simple program
+let prog = parse(`if(true, false, true)`);
+console.log(evaluate(prog, topScope));
+
+for (let op of ["+", "-", "*", "/", "==", "<", ">"]) {
+    topScope[op] = Function("a, b", `return a ${op} b;`)
+}
