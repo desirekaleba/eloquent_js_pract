@@ -37,20 +37,27 @@
 //     }
 // }
 
-function elt(type, ...children) {
-    let node = document.createElement(type);
-    for (let child of children) {
-        if (typeof child != "string")
-            node.appendChild(child);
-        else
-            node.appendChild(document.createTextNode(child));
-    }
-    return node;
-}
+// function elt(type, ...children) {
+//     let node = document.createElement(type);
+//     for (let child of children) {
+//         if (typeof child != "string")
+//             node.appendChild(child);
+//         else
+//             node.appendChild(document.createTextNode(child));
+//     }
+//     return node;
+// }
 
-document.getElementById("quote").appendChild(elt("footer", "-",
-                                                elt("strong", "Desire Kaleba"),
-                                                ", preface to the second edition of ",
-                                                elt("em", "The Open mind"),
-                                                ", 2003"
-                                                ));
+// document.getElementById("quote").appendChild(elt("footer", "-",
+//                                                 elt("strong", "Desire Kaleba"),
+//                                                 ", preface to the second edition of ",
+//                                                 elt("em", "The Open mind"),
+//                                                 ", 2003"
+//                                                 ));
+
+// Attributes
+let paras = document.body.getElementsByTagName("p");
+for (let para of Array.from(paras)) {
+    if (para.getAttribute("data-classified") == "secret")
+        para.remove();
+}
