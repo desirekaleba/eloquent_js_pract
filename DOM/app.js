@@ -16,3 +16,7 @@ console.log(talksAbout(document.body, "book"));
 // getElementsByTagName
 let link = document.getElementsByTagName("a")[0];
 console.log(link.href);
+
+// getElementById
+let ostrich = document.getElementById("ostrich");
+console.log(ostrich);
