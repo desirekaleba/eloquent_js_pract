@@ -156,6 +156,8 @@ function buildTable(data) {
         for(info of headers) {
             let m_td = document.createElement("td");
             m_td.appendChild(document.createTextNode(value[info]));
+            if (typeof value[info] == "number")
+                m_td.style.textAlign = "right";
             value_tr.appendChild(m_td);
         }
         table.appendChild(value_tr);
