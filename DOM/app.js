@@ -6,7 +6,7 @@
 //             }
 //         }
 //         return false;
-        
+
 //     } else if (node.nodeType == Node.TEXT_NODE) {
 //         return node.nodeValue.indexOf(string) > -1;
 //     }
@@ -87,14 +87,80 @@
 // });
 
 // Position and animation
-let cat = document.querySelector("img");
-let angle = Math.PI / 2;
-function animate(time, lastTime) {
-    if (lastTime =! null) {
-        angle += (time - lastTime) * 0.001;
+// let cat = document.querySelector("img");
+// let angle = Math.PI / 2;
+// function animate(time, lastTime) {
+//     if (lastTime =! null) {
+//         angle += (time - lastTime) * 0.001;
+//     }
+//     cat.style.top = (Math.sin(angle) * 20) + "px";
+//     cat.style.left = (Math.cos(angle) * 200) + "px";
+//     requestAnimationFrame(newTime => animate(newTime, time));
+// }
+// requestAnimationFrame(animate);
+
+// Building a table
+const MOUNTAINS = [{
+        name: "Kilimanjaro",
+        height: 5895,
+        place: "Tanzania"
+    },
+    {
+        name: "Everest",
+        height: 8848,
+        place: "Nepal"
+    },
+    {
+        name: "Mount Fuji",
+        height: 3776,
+        place: "Japan"
+    },
+    {
+        name: "Vaalserberg",
+        height: 323,
+        place: "Netherlands"
+    },
+    {
+        name: "Denali",
+        height: 6168,
+        place: "United States"
+    },
+    {
+        name: "Popocatepetl",
+        height: 5465,
+        place: "Mexico"
+    },
+    {
+        name: "Mont Blanc",
+        height: 4808,
+        place: "Italy/France"
     }
-    cat.style.top = (Math.sin(angle) * 20) + "px";
-    cat.style.left = (Math.cos(angle) * 200) + "px";
-    requestAnimationFrame(newTime => animate(newTime, time));
+];
+
+function buildTable(data) {
+    let table = document.createElement("table");
+
+    let headers = Object.keys(data[0]);
+    let headers_tr = document.createElement("tr");
+
+    headers.forEach(header => {
+        h_tr_th = document.createElement("th");
+        h_tr_th.appendChild(document.createTextNode(header));
+        headers_tr.appendChild(h_tr_th);
+    });
+    table.appendChild(headers_tr);
+
+    data.forEach(value => {
+        let value_tr = document.createElement("tr");
+
+        for(info of headers) {
+            let m_td = document.createElement("td");
+            m_td.appendChild(document.createTextNode(value[info]));
+            value_tr.appendChild(m_td);
+        }
+        table.appendChild(value_tr);
+    });
+    
+    document.getElementById("mountains").appendChild(table);
 }
-requestAnimationFrame(animate);
+buildTable(MOUNTAINS);
