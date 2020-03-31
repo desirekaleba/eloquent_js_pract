@@ -20,3 +20,6 @@ console.log(link.href);
 // getElementById
 let ostrich = document.getElementById("ostrich");
 console.log(ostrich);
+
+let ostrich_img = document.getElementsByClassName("img")[0];
+console.log(ostrich_img);
