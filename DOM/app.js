@@ -56,8 +56,32 @@
 //                                                 ));
 
 // Attributes
-let paras = document.body.getElementsByTagName("p");
-for (let para of Array.from(paras)) {
-    if (para.getAttribute("data-classified") == "secret")
-        para.remove();
+// let paras = document.body.getElementsByTagName("p");
+// for (let para of Array.from(paras)) {
+//     if (para.getAttribute("data-classified") == "secret")
+//         para.remove();
+// }
+
+// layout
+// let para = document.body.getElementsByTagName("p")[0];
+// console.log("clientHeight:", para.clientHeight);
+// console.log("offsetHeight:", para.offsetHeight);
+
+function time(name, action) {
+    let start = Date.now();
+    action();
+    console.log(name, "took", Date.now() - start, "ms");
 }
+time("naive", () => {
+    let target = document.getElementById("one");
+    while (target.offsetWidth < 2000) {
+        target.appendChild(document.createTextNode("X"));
+    }
+});
+
+time("clever", function() {
+    let target = document.getElementById("two");
+    target.appendChild(document.createTextNode("XXXXX"));
+    let total = Math.ceil(2000 / (target.offsetWidth / 5));
+    target.firstChild.nodeValue = "X".repeat(total);
+});
