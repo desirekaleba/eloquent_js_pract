@@ -6,6 +6,7 @@ function talksAbout (node, string) {
             }
         }
         return false;
+        
     } else if (node.NodeType == Node.TEXT_NODE) {
         return node.nodeValue.indexOf(string) > -1;
     }
