@@ -309,6 +309,8 @@
 //         console.log("lastX", lastX, "lastY", lastY, "distX", distX, "distY", distY, "newWidth", newWidth, "newHeight", newHeight);
 //     }
 // }
+
+// Touch events
 function update(event) {
     for (let dot; dot = document.querySelector("dot");) {
         dot.remove();
