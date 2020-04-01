@@ -377,6 +377,6 @@ let clock = setInterval(() => {
     console.log("Tick", ticks++);
     if (ticks == 10) {
         clearInterval(clock);
-        console.log("Stop.")
+        console.log("Stop.");
     }
 }, 1000);
