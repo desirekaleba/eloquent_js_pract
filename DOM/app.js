@@ -342,7 +342,7 @@
 //     bar.style.width = `${(pageYOffset / maxHeight) * 100}%`;
 // });
 
-// Focus Events
+// Focus and Blur Events
 let help = document.querySelector("#help");
 let fields = document.querySelectorAll("input");
 
