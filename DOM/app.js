@@ -271,10 +271,34 @@
 // });
 
 // mouse click
-window.addEventListener("click", event => {
-    let div = document.createElement("div");
-    div.className = "dot";
-    div.style.left = (event.pageX - 4) + "px";
-    div.style.top = (event.pageY - 4) + "px";
-    document.body.appendChild(div);
+// window.addEventListener("click", event => {
+//     let div = document.createElement("div");
+//     div.className = "dot";
+//     div.style.left = (event.pageX - 4) + "px";
+//     div.style.top = (event.pageY - 4) + "px";
+//     document.body.appendChild(div);
+// });
+
+// Mouse motion
+let lastX;
+let bar = document.querySelector("div");
+
+bar.addEventListener("mousedown", event => {
+    if (event.button == 0) {
+        lastX = event.clientX;
+        window.addEventListener("mousemove", moved);
+        event.preventDefault(); // prevent selection
+    }
 });
+
+function moved(event) {
+    if (event.buttons == 0) {
+        window.removeEventListener("mousemove", moved);
+
+    } else {
+        let dist = event.clientX - lastX;
+        let newWidth = Math.max(10, bar.offsetWidth + dist);
+        bar.style.width = newWidth + "px";
+        lastX = event.clientX;
+    }
+}
