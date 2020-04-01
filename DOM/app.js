@@ -361,3 +361,22 @@
 // fires a load event
 // to fire an event before closing or changing the page window
 // we use beforeunload event
+
+// Timers
+// let bombTimer = setTimeout(() => {
+//     console.log("BOOM!");
+// }, 500);
+
+// if (Math.random() < 0.5) {
+//     console.log("Defused.");
+//     clearTimeout(bombTimer);
+// }
+
+let ticks = 0;
+let clock = setInterval(() => {
+    console.log("Tick", ticks++);
+    if (ticks == 10) {
+        clearInterval(clock);
+        console.log("Stop.")
+    }
+}, 1000);
