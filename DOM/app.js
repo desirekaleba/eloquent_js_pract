@@ -237,8 +237,15 @@
 
 // target
 
-document.body.addEventListener("click", event => {
-    if (event.target.nodeName == "BUTTON") {
-        console.log("Clicked", event.target.textContent);
-    }
+// document.body.addEventListener("click", event => {
+//     if (event.target.nodeName == "BUTTON") {
+//         console.log("Clicked", event.target.textContent);
+//     }
+// });
+
+// Default actions
+let link = document.querySelector("a");
+link.addEventListener("click", event => {
+    console.log("Nope.");
+    event.preventDefault();
 });
