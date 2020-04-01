@@ -391,13 +391,13 @@
 //     }, 500);
 // });
 
-let scheduled = null;
-window.addEventListener("mousemove", (event) => {
-    if (!scheduled) {
-        setTimeout(() => {
-            document.body.textContent = `Mouse at ${scheduled.pageX}, ${scheduled.pageY}`;
-            scheduled = null;
-        }, 250);
-    }
-    scheduled = event;
-});
+// let scheduled = null;
+// window.addEventListener("mousemove", (event) => {
+//     if (!scheduled) {
+//         setTimeout(() => {
+//             document.body.textContent = `Mouse at ${scheduled.pageX}, ${scheduled.pageY}`;
+//             scheduled = null;
+//         }, 250);
+//     }
+//     scheduled = event;
+// });
