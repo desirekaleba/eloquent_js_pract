@@ -100,69 +100,93 @@
 // requestAnimationFrame(animate);
 
 // Building a table
-const MOUNTAINS = [{
-        name: "Kilimanjaro",
-        height: 5895,
-        place: "Tanzania"
-    },
-    {
-        name: "Everest",
-        height: 8848,
-        place: "Nepal"
-    },
-    {
-        name: "Mount Fuji",
-        height: 3776,
-        place: "Japan"
-    },
-    {
-        name: "Vaalserberg",
-        height: 323,
-        place: "Netherlands"
-    },
-    {
-        name: "Denali",
-        height: 6168,
-        place: "United States"
-    },
-    {
-        name: "Popocatepetl",
-        height: 5465,
-        place: "Mexico"
-    },
-    {
-        name: "Mont Blanc",
-        height: 4808,
-        place: "Italy/France"
-    }
-];
+// const MOUNTAINS = [{
+//         name: "Kilimanjaro",
+//         height: 5895,
+//         place: "Tanzania"
+//     },
+//     {
+//         name: "Everest",
+//         height: 8848,
+//         place: "Nepal"
+//     },
+//     {
+//         name: "Mount Fuji",
+//         height: 3776,
+//         place: "Japan"
+//     },
+//     {
+//         name: "Vaalserberg",
+//         height: 323,
+//         place: "Netherlands"
+//     },
+//     {
+//         name: "Denali",
+//         height: 6168,
+//         place: "United States"
+//     },
+//     {
+//         name: "Popocatepetl",
+//         height: 5465,
+//         place: "Mexico"
+//     },
+//     {
+//         name: "Mont Blanc",
+//         height: 4808,
+//         place: "Italy/France"
+//     }
+// ];
 
-function buildTable(data) {
-    let table = document.createElement("table");
+// function buildTable(data) {
+//     let table = document.createElement("table");
 
-    let headers = Object.keys(data[0]);
-    let headers_tr = document.createElement("tr");
+//     let headers = Object.keys(data[0]);
+//     let headers_tr = document.createElement("tr");
 
-    headers.forEach(header => {
-        h_tr_th = document.createElement("th");
-        h_tr_th.appendChild(document.createTextNode(header));
-        headers_tr.appendChild(h_tr_th);
-    });
-    table.appendChild(headers_tr);
+//     headers.forEach(header => {
+//         h_tr_th = document.createElement("th");
+//         h_tr_th.appendChild(document.createTextNode(header));
+//         headers_tr.appendChild(h_tr_th);
+//     });
+//     table.appendChild(headers_tr);
 
-    data.forEach(value => {
-        let value_tr = document.createElement("tr");
+//     data.forEach(value => {
+//         let value_tr = document.createElement("tr");
 
-        for(info of headers) {
-            let m_td = document.createElement("td");
-            m_td.appendChild(document.createTextNode(value[info]));
-            if (typeof value[info] == "number")
-                m_td.style.textAlign = "right";
-            value_tr.appendChild(m_td);
-        }
-        table.appendChild(value_tr);
-    });
+//         for(info of headers) {
+//             let m_td = document.createElement("td");
+//             m_td.appendChild(document.createTextNode(value[info]));
+//             if (typeof value[info] == "number")
+//                 m_td.style.textAlign = "right";
+//             value_tr.appendChild(m_td);
+//         }
+//         table.appendChild(value_tr);
+//     });
     
-    document.getElementById("mountains").appendChild(table);
+//     document.getElementById("mountains").appendChild(table);
+// }
+// buildTable(MOUNTAINS);
+
+// Elements by tag name
+function byTagName(node, tagName) {
+    let found = [];
+    tagName = tagName.toUpperCase();
+
+    function explore(node) {
+        for (let i = 0; i < node.childNodes.length; i++) {
+            let child = node.childNodes[i];
+            if (child.nodeType == document.ELEMENT_NODE) {
+                if (child.nodeName == tagName)
+                    found.push(child);
+                explore(child);
+            }
+        }
+    }
+    explore(node);
+    return found;
 }
-buildTable(MOUNTAINS);
+
+console.log(byTagName(document.body, "h1").length);
+console.log(byTagName(document.body, "span").length);
+let para = document.querySelector("p");
+console.log(byTagName(para, "span").length);
