@@ -281,11 +281,13 @@
 
 // Mouse motion
 let lastX;
+let lastY;
 let bar = document.querySelector("div");
 
 bar.addEventListener("mousedown", event => {
     if (event.button == 0) {
         lastX = event.clientX;
+        lastY = event.clientY;
         window.addEventListener("mousemove", moved);
         event.preventDefault(); // prevent selection
     }
@@ -296,9 +298,14 @@ function moved(event) {
         window.removeEventListener("mousemove", moved);
 
     } else {
-        let dist = event.clientX - lastX;
-        let newWidth = Math.max(10, bar.offsetWidth + dist);
+        let distX = event.clientX - lastX;
+        let distY = event.clientY - lastY;
+        let newWidth = Math.max(10, bar.offsetWidth + distX);
+        let newHeight = Math.max(10, bar.offsetHeight + distY);
         bar.style.width = newWidth + "px";
+        bar.style.height = newHeight + "px";
         lastX = event.clientX;
+        lastY = event.clientY;
+        console.log("lastX", lastX, "lastY", lastY, "distX", distX, "distY", distY, "newWidth", newWidth, "newHeight", newHeight);
     }
 }
