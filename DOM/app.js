@@ -222,14 +222,23 @@
 //         console.log("Right Button");
 // });
 
-let para = document.querySelector("p");
-let button = document.querySelector("button");
+// Propagation
+// let para = document.querySelector("p");
+// let button = document.querySelector("button");
 
-para.addEventListener("mousedown", (event) => {
-    console.log("Handler for paragraph");
-});
-button.addEventListener("mousedown", (event) => {
-    console.log("Handler for button");
-    if (event.button == 2)
-        event.stopPropagation();
+// para.addEventListener("mousedown", (event) => {
+//     console.log("Handler for paragraph");
+// });
+// button.addEventListener("mousedown", (event) => {
+//     console.log("Handler for button");
+//     if (event.button == 2)
+//         event.stopPropagation();
+// });
+
+// target
+
+document.body.addEventListener("click", event => {
+    if (event.target.nodeName == "BUTTON") {
+        console.log("Clicked", event.target.textContent);
+    }
 });
