@@ -372,11 +372,23 @@
 //     clearTimeout(bombTimer);
 // }
 
-let ticks = 0;
-let clock = setInterval(() => {
-    console.log("Tick", ticks++);
-    if (ticks == 10) {
-        clearInterval(clock);
-        console.log("Stop.");
-    }
-}, 1000);
+// let ticks = 0;
+// let clock = setInterval(() => {
+//     console.log("Tick", ticks++);
+//     if (ticks == 10) {
+//         clearInterval(clock);
+//         console.log("Stop.");
+//     }
+// }, 1000);
+
+// Debouncing
+let textarea = document.querySelector("textarea");
+let timeout;
+textarea.addEventListener("input", () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+        console.log("Typed")
+    }, 500);
+});
+
+let scheduled = null;
