@@ -162,7 +162,7 @@
 //         }
 //         table.appendChild(value_tr);
 //     });
-    
+
 //     document.getElementById("mountains").appendChild(table);
 // }
 // buildTable(MOUNTAINS);
@@ -222,14 +222,142 @@
 //         console.log("Right Button");
 // });
 
-let para = document.querySelector("p");
-let button = document.querySelector("button");
+// Propagation
+// let para = document.querySelector("p");
+// let button = document.querySelector("button");
 
-para.addEventListener("mousedown", (event) => {
-    console.log("Handler for paragraph");
-});
-button.addEventListener("mousedown", (event) => {
-    console.log("Handler for button");
-    if (event.button == 2)
-        event.stopPropagation();
-});
+// para.addEventListener("mousedown", (event) => {
+//     console.log("Handler for paragraph");
+// });
+// button.addEventListener("mousedown", (event) => {
+//     console.log("Handler for button");
+//     if (event.button == 2)
+//         event.stopPropagation();
+// });
+
+// target
+
+// document.body.addEventListener("click", event => {
+//     if (event.target.nodeName == "BUTTON") {
+//         console.log("Clicked", event.target.textContent);
+//     }
+// });
+
+// Default actions
+// let link = document.querySelector("a");
+// link.addEventListener("click", event => {
+//     console.log("Nope.");
+//     event.preventDefault();
+// });
+
+// Key events
+// window.addEventListener("keydown", event => {
+//     if (event.key == "v") {
+//         document.body.style.backgroundColor = "violet";
+//     } else if (event.key == "g") {
+//         document.body.style.backgroundColor = "green";
+//     }
+// });
+// window.addEventListener("keyup", event => {
+//     document.body.style.backgroundColor = "";
+
+// });
+
+// 
+// window.addEventListener("keydown", event => {
+//     if (event.key == " " && event.ctrlKey) {
+//         console.log("continuing...");
+//     }
+// });
+
+// mouse click
+// window.addEventListener("click", event => {
+//     let div = document.createElement("div");
+//     div.className = "dot";
+//     div.style.left = (event.pageX - 4) + "px";
+//     div.style.top = (event.pageY - 4) + "px";
+//     document.body.appendChild(div);
+// });
+
+// Mouse motion
+// let lastX;
+// let lastY;
+// let bar = document.querySelector("div");
+
+// bar.addEventListener("mousedown", event => {
+//     if (event.button == 0) {
+//         lastX = event.clientX;
+//         lastY = event.clientY;
+//         window.addEventListener("mousemove", moved);
+//         event.preventDefault(); // prevent selection
+//     }
+// });
+
+// function moved(event) {
+//     if (event.buttons == 0) {
+//         window.removeEventListener("mousemove", moved);
+
+//     } else {
+//         let distX = event.clientX - lastX;
+//         let distY = event.clientY - lastY;
+//         let newWidth = Math.max(10, bar.offsetWidth + distX);
+//         let newHeight = Math.max(10, bar.offsetHeight + distY);
+//         bar.style.width = newWidth + "px";
+//         bar.style.height = newHeight + "px";
+//         lastX = event.clientX;
+//         lastY = event.clientY;
+//         console.log("lastX", lastX, "lastY", lastY, "distX", distX, "distY", distY, "newWidth", newWidth, "newHeight", newHeight);
+//     }
+// }
+
+// Touch events
+// function update(event) {
+//     for (let dot; dot = document.querySelector("dot");) {
+//         dot.remove();
+//     }
+//     for (let i = 0; i < event.touches.length; i++) {
+//         let {
+//             pageX,
+//             pageY
+//         } = event.touches[i];
+//         let dot = document.createElement("dot");
+//         dot.style.left = (pageX - 50) + "px";
+//         dot.style.top = (pageY - 50) + "px";
+//         document.body.appendChild(dot);
+//         252
+//     }
+// }
+// window.addEventListener("touchstart", update);
+// window.addEventListener("touchmove", update);
+// window.addEventListener("touchend", update);
+
+// Scroll Events
+// Create some content
+// document.body.appendChild(document.createTextNode(
+//     "DESIRE KALEBA".repeat(1000)
+// ));
+// let bar = document.querySelector("#progress");
+// window.addEventListener("scroll", () => {
+//     let maxHeight = document.body.scrollHeight - innerHeight;
+//     bar.style.width = `${(pageYOffset / maxHeight) * 100}%`;
+// });
+
+// Focus and Blur Events
+// let help = document.querySelector("#help");
+// let fields = document.querySelectorAll("input");
+
+// for (let field of Array.from(fields)) {
+//     field.addEventListener("focus", event => {
+//         let text = event.target.getAttribute("data-help");
+//         help.textContent = text;
+//     });
+
+//     field.addEventListener("blur", event => {
+//         help.textContent = "";
+//     });
+// }
+
+// Load Event
+// fires a load event
+// to fire an event before closing or changing the page window
+// we use beforeunload event
