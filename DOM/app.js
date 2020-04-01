@@ -270,6 +270,7 @@
 //     }
 // });
 
+// mouse click
 window.addEventListener("click", event => {
     let div = document.createElement("div");
     div.className = "dot";
