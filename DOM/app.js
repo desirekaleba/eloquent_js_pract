@@ -168,25 +168,45 @@
 // buildTable(MOUNTAINS);
 
 // Elements by tag name
-function byTagName(node, tagName) {
-    let found = [];
-    tagName = tagName.toUpperCase();
+// function byTagName(node, tagName) {
+//     let found = [];
+//     tagName = tagName.toUpperCase();
 
-    function explore(node) {
-        for (let i = 0; i < node.childNodes.length; i++) {
-            let child = node.childNodes[i];
-            if (child.nodeType == document.ELEMENT_NODE) {
-                if (child.nodeName == tagName)
-                    found.push(child);
-                explore(child);
-            }
-        }
-    }
-    explore(node);
-    return found;
+//     function explore(node) {
+//         for (let i = 0; i < node.childNodes.length; i++) {
+//             let child = node.childNodes[i];
+//             if (child.nodeType == document.ELEMENT_NODE) {
+//                 if (child.nodeName == tagName)
+//                     found.push(child);
+//                 explore(child);
+//             }
+//         }
+//     }
+//     explore(node);
+//     return found;
+// }
+
+// console.log(byTagName(document.body, "h1").length);
+// console.log(byTagName(document.body, "span").length);
+// let para = document.querySelector("p");
+// console.log(byTagName(para, "span").length);
+
+//  The cat's hat
+let cat = document.querySelector("#cat");
+let hat = document.querySelector("#hat");
+
+let angle = 0;
+let lastTime = null;
+
+function animate(time) {
+    if (lastTime != null)
+        angle += (time - lastTime) * 0.001;
+        lastTime = time;
+        cat.style.top = (Math.sin(angle) * 40 + 40) + "px";
+        cat.style.left = (Math.cos(angle) * 200 + 230) + "px";
+        hat.style.top = (Math.sin(angle + Math.PI) * 40 + 40) + "px";
+        hat.style.left = (Math.cos(angle + Math.PI) * 200 + 230) + "px";
+
+        requestAnimationFrame(animate);
 }
-
-console.log(byTagName(document.body, "h1").length);
-console.log(byTagName(document.body, "span").length);
-let para = document.querySelector("p");
-console.log(byTagName(para, "span").length);
+requestAnimationFrame(animate);
