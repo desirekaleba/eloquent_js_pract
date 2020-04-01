@@ -244,8 +244,21 @@
 // });
 
 // Default actions
-let link = document.querySelector("a");
-link.addEventListener("click", event => {
-    console.log("Nope.");
-    event.preventDefault();
+// let link = document.querySelector("a");
+// link.addEventListener("click", event => {
+//     console.log("Nope.");
+//     event.preventDefault();
+// });
+
+// Key events
+window.addEventListener("keydown", event => {
+    if (event.key == "v") {
+        document.body.style.backgroundColor = "violet";
+    } else if (event.key == "g") {
+        document.body.style.backgroundColor = "green";
+    }
+});
+window.addEventListener("keyup", event => {
+    document.body.style.backgroundColor = "";
+    
 });
