@@ -162,7 +162,7 @@
 //         }
 //         table.appendChild(value_tr);
 //     });
-    
+
 //     document.getElementById("mountains").appendChild(table);
 // }
 // buildTable(MOUNTAINS);
@@ -260,7 +260,7 @@
 // });
 // window.addEventListener("keyup", event => {
 //     document.body.style.backgroundColor = "";
-    
+
 // });
 
 // 
@@ -280,32 +280,51 @@
 // });
 
 // Mouse motion
-let lastX;
-let lastY;
-let bar = document.querySelector("div");
+// let lastX;
+// let lastY;
+// let bar = document.querySelector("div");
 
-bar.addEventListener("mousedown", event => {
-    if (event.button == 0) {
-        lastX = event.clientX;
-        lastY = event.clientY;
-        window.addEventListener("mousemove", moved);
-        event.preventDefault(); // prevent selection
+// bar.addEventListener("mousedown", event => {
+//     if (event.button == 0) {
+//         lastX = event.clientX;
+//         lastY = event.clientY;
+//         window.addEventListener("mousemove", moved);
+//         event.preventDefault(); // prevent selection
+//     }
+// });
+
+// function moved(event) {
+//     if (event.buttons == 0) {
+//         window.removeEventListener("mousemove", moved);
+
+//     } else {
+//         let distX = event.clientX - lastX;
+//         let distY = event.clientY - lastY;
+//         let newWidth = Math.max(10, bar.offsetWidth + distX);
+//         let newHeight = Math.max(10, bar.offsetHeight + distY);
+//         bar.style.width = newWidth + "px";
+//         bar.style.height = newHeight + "px";
+//         lastX = event.clientX;
+//         lastY = event.clientY;
+//         console.log("lastX", lastX, "lastY", lastY, "distX", distX, "distY", distY, "newWidth", newWidth, "newHeight", newHeight);
+//     }
+// }
+function update(event) {
+    for (let dot; dot = document.querySelector("dot");) {
+        dot.remove();
     }
-});
-
-function moved(event) {
-    if (event.buttons == 0) {
-        window.removeEventListener("mousemove", moved);
-
-    } else {
-        let distX = event.clientX - lastX;
-        let distY = event.clientY - lastY;
-        let newWidth = Math.max(10, bar.offsetWidth + distX);
-        let newHeight = Math.max(10, bar.offsetHeight + distY);
-        bar.style.width = newWidth + "px";
-        bar.style.height = newHeight + "px";
-        lastX = event.clientX;
-        lastY = event.clientY;
-        console.log("lastX", lastX, "lastY", lastY, "distX", distX, "distY", distY, "newWidth", newWidth, "newHeight", newHeight);
+    for (let i = 0; i < event.touches.length; i++) {
+        let {
+            pageX,
+            pageY
+        } = event.touches[i];
+        let dot = document.createElement("dot");
+        dot.style.left = (pageX - 50) + "px";
+        dot.style.top = (pageY - 50) + "px";
+        document.body.appendChild(dot);
+        252
     }
 }
+window.addEventListener("touchstart", update);
+window.addEventListener("touchmove", update);
+window.addEventListener("touchend", update);
