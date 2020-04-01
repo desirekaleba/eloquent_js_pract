@@ -264,8 +264,16 @@
 // });
 
 // 
-window.addEventListener("keydown", event => {
-    if (event.key == " " && event.ctrlKey) {
-        console.log("continuing...");
-    }
+// window.addEventListener("keydown", event => {
+//     if (event.key == " " && event.ctrlKey) {
+//         console.log("continuing...");
+//     }
+// });
+
+window.addEventListener("click", event => {
+    let div = document.createElement("div");
+    div.className = "dot";
+    div.style.left = (event.pageX - 4) + "px";
+    div.style.top = (event.pageY - 4) + "px";
+    document.body.appendChild(div);
 });
