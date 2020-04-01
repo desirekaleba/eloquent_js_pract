@@ -333,11 +333,26 @@
 
 // Scroll Events
 // Create some content
-document.body.appendChild(document.createTextNode(
-    "DESIRE KALEBA".repeat(1000)
-));
-let bar = document.querySelector("#progress");
-window.addEventListener("scroll", () => {
-    let maxHeight = document.body.scrollHeight - innerHeight;
-    bar.style.width = `${(pageYOffset / maxHeight) * 100}%`;
-});
+// document.body.appendChild(document.createTextNode(
+//     "DESIRE KALEBA".repeat(1000)
+// ));
+// let bar = document.querySelector("#progress");
+// window.addEventListener("scroll", () => {
+//     let maxHeight = document.body.scrollHeight - innerHeight;
+//     bar.style.width = `${(pageYOffset / maxHeight) * 100}%`;
+// });
+
+// Focus Events
+let help = document.querySelector("#help");
+let fields = document.querySelectorAll("input");
+
+for (let field of Array.from(fields)) {
+    field.addEventListener("focus", event => {
+        let text = event.target.getAttribute("data-help");
+        help.textContent = text;
+    });
+
+    field.addEventListener("blur", event => {
+        help.textContent = "";
+    });
+}
