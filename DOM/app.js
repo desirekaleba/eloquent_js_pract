@@ -427,17 +427,47 @@
 // 	}
 // }
 // document.body.addEventListener("keydown", handleArrow);
-let dots = [];
-for (let i = 0; i < 12; i ++) {
-    let div = document.createElement("div");
-    div.className = "trail";
-    dots.push(div);
-    document.body.appendChild(div);
+// let dots = [];
+// for (let i = 0; i < 12; i ++) {
+//     let div = document.createElement("div");
+//     div.className = "trail";
+//     dots.push(div);
+//     document.body.appendChild(div);
+// }
+// let currentDot = 0;
+// window.addEventListener("mousemove", event => {
+//     let dot = dots[currentDot];
+//     dot.style.top = (event.pageY - 3) + "px";
+//     dot.style.left = (event.pageX - 3) + "px";
+//     currentDot = (currentDot + 1) % dots.length;
+// });
+
+// Tabs
+function asTabs(node) {
+    let tabs = Array.from(node.children).map(node => {
+        let button = document.createElement("button");
+        button.textContent = node.getAttribute("data-tabname");
+        let tab = {
+            node,
+            button
+        };
+        button.addEventListener("click", () => selectTab(tab));
+        return tab;
+    });
+
+    let tabList = document.createElement("div");
+    for (let {button} of tabs) {
+        tabList.appendChild(button);
+    }
+    node.insertBefore(tabList, node.firstChild);
+
+    function selectTab(selectedTab) {
+        for (let tab of tabs) {
+            let selected = tab == selectedTab;
+            tab.node.style.display = selected ? "" : "none";
+            tab.button.style.color = selected ? "red" : "";
+        }
+    }
+    selectTab(tabs[0]);
 }
-let currentDot = 0;
-window.addEventListener("mousemove", event => {
-    let dot = dots[currentDot];
-    dot.style.top = (event.pageY - 3) + "px";
-    dot.style.left = (event.pageX - 3) + "px";
-    currentDot = (currentDot + 1) % dots.length;
-});
+asTabs(document.querySelector("tab-panel"));
