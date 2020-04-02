@@ -382,13 +382,48 @@
 // }, 1000);
 
 // Debouncing
-let textarea = document.querySelector("textarea");
-let timeout;
-textarea.addEventListener("input", () => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-        console.log("Typed")
-    }, 500);
-});
+// let textarea = document.querySelector("textarea");
+// let timeout;
+// textarea.addEventListener("input", () => {
+//     clearTimeout(timeout);
+//     timeout = setTimeout(() => {
+//         console.log("Typed")
+//     }, 500);
+// });
 
-let scheduled = null;
+// let scheduled = null;
+// window.addEventListener("mousemove", (event) => {
+//     if (!scheduled) {
+//         setTimeout(() => {
+//             document.body.textContent = `Mouse at ${scheduled.pageX}, ${scheduled.pageY}`;
+//             scheduled = null;
+//         }, 250);
+//     }
+//     scheduled = event;
+// });
+
+
+// Ballon
+let ballon = document.querySelector("#balloon");
+let size;
+function setSize(newSize) {
+	size = newSize;
+	ballon.style.fontSize = size + "px";
+}
+setSize(20);
+
+function handleArrow(event) {
+	if (event.key == "ArrowUp" && event.ctrlKey) {
+		if (size > 70) {
+			ballon.textContent = "💥";
+			document.body.removeEventListener("keydown", handleArrow);
+		} else {
+			setSize(size * 1.1);
+			event.preventDefault();
+		}
+	} else if (event.key == "ArrowDown" && event.ctrlKey) {
+		setSize(size * 0.9);
+		event.preventDefault();
+	}
+}
+document.body.addEventListener("keydown", handleArrow);
