@@ -379,13 +379,25 @@ function runLevel(level, Display) {
 }
 
 async function runGame(plans, Display) {
-    for (let level = 0; level < plans.length;) {
+    let lives = 3;
+    for (let level = 0; level < plans.length && lives > 0;) {
+        console.log(`Level ${level + 1}, Lives: ${lives}`);
         let status = await runLevel(new Level(plans[level]), Display);
 
         if (status == "won")
             level++;
+        else
+            lives--;
     }
-    console.log("You have won");
+    if (lives > 0)
+        console.log("You have won");
+    else {
+        alert("Game over");
+        if (confirm("Restart ?") == true)
+            runGame(plans, Display);
+        else
+            alert("Good bye");
+    }
 }
 
 import GAME_LEVELS from "./levels/levels.js";
