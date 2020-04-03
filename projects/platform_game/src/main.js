@@ -121,3 +121,16 @@ const levelChars = {
     "v": Lava
 };
 
+let simpleLevelPlan = `
+......................
+..#................#..
+..#..............=.#..
+..#.........o.o....#..
+..#.@......#####...#..
+..#####............#..
+......#++++++++++++#..
+......##############..
+......................`;
+
+let simpleLevel = new Level(simpleLevelPlan);
+console.log(`${simpleLevel.width} by ${simpleLevel.height}`);
