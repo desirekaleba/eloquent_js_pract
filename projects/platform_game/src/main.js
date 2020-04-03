@@ -121,16 +121,28 @@ const levelChars = {
     "v": Lava
 };
 
-let simpleLevelPlan = `
-......................
-..#................#..
-..#..............=.#..
-..#.........o.o....#..
-..#.@......#####...#..
-..#####............#..
-......#++++++++++++#..
-......##############..
-......................`;
+// let simpleLevelPlan = `
+// ......................
+// ..#................#..
+// ..#..............=.#..
+// ..#.........o.o....#..
+// ..#.@......#####...#..
+// ..#####............#..
+// ......#++++++++++++#..
+// ......##############..
+// ......................`;
 
-let simpleLevel = new Level(simpleLevelPlan);
-console.log(`${simpleLevel.width} by ${simpleLevel.height}`);
+// let simpleLevel = new Level(simpleLevelPlan);
+// console.log(`${simpleLevel.width} by ${simpleLevel.height}`);
+
+function elt(name, attrs, ...children) {
+    let dom = document.createElement(name);
+    
+    for (let attr of Object.keys(attrs)) {
+        dom.setAttribute(attr, attrs[attr]);
+    }
+    for (let child of children) {
+        dom.appendChild(child);
+    }
+    return dom;
+}
