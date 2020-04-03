@@ -120,16 +120,16 @@ const levelChars = {
     "|": Lava,
     "v": Lava
 };
-let simpleLevelPlan = `
-......................
-..#................#..
-..#..............=.#..
-..#.........o.o....#..
-..#.@......#####...#..
-..#####............#..
-......#++++++++++++#..
-......##############..
-......................`;
+// let simpleLevelPlan = `
+// ......................
+// ..#................#..
+// ..#..............=.#..
+// ..#.........o.o....#..
+// ..#.@......#####...#..
+// ..#####............#..
+// ......#++++++++++++#..
+// ......##############..
+// ......................`;
 // let simpleLevel = new Level(simpleLevelPlan);
 // console.log(`${simpleLevel.width} by ${simpleLevel.height}`);
 
@@ -387,3 +387,7 @@ async function runGame(plans, Display) {
     }
     console.log("You have won");
 }
+
+import GAME_LEVELS from "./levels/levels.js";
+
+runGame(GAME_LEVELS, DOMDisplay);
