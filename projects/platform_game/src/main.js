@@ -264,3 +264,15 @@ function overlap(actor1, actor2) {
             actor1.pos.y + actor1.size.y > actor2.pos.y &&
             actor1.pos.y < actor2.pos.y + actor2.size.y;
 }
+
+Lava.prototype.collide = function(state) {
+    return new State(state.level, state.actors, "lost");
+};
+
+Coin.prototype.collide = function(state) {
+    let filtered = state.actors.filter(a => a != this);
+    let status = state.status;
+    if (!filtered.some(a => a.type == "coin")) 
+        status = "won";
+    return new State(state.level, filtered, status);
+};
