@@ -487,9 +487,19 @@
 // }
 // cx.stroke();
 
-let cx = document.querySelector("canvas").getContext('2d');
+// let cx = document.querySelector("canvas").getContext('2d');
+// cx.beginPath();
+// cx.moveTo(50, 10);
+// cx.lineTo(10, 70);
+// cx.lineTo(90, 70);
+// cx.fill();
+
+// curves
+let cx = document.querySelector("canvas").getContext("2d");
 cx.beginPath();
-cx.moveTo(50, 10);
-cx.lineTo(10, 70);
-cx.lineTo(90, 70);
-cx.fill();
+cx.moveTo(10, 90);
+// control = (60, 90) goal = (90, 90)
+cx.quadraticCurveTo(60, 10, 90, 90);
+cx.lineTo(60, 10);
+cx.closePath();
+cx.stroke();
