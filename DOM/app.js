@@ -473,5 +473,23 @@
 // asTabs(document.querySelector("tab-panel"));
 
 // SVG
-let circle = document.querySelector("circle");
-circle.setAttribute("fill", "cyan");
+// let circle = document.querySelector("circle");
+// circle.setAttribute("fill", "cyan");
+
+// canvas
+
+// paths
+// let cx = document.querySelector("canvas").getContext("2d");
+// cx.beginPath();
+// for (let y = 10; y < 100; y +=10) {
+//     cx.moveTo(10, y);
+//     cx.lineTo(90, y);
+// }
+// cx.stroke();
+
+let cx = document.querySelector("canvas").getContext('2d');
+cx.beginPath();
+cx.moveTo(50, 10);
+cx.lineTo(10, 70);
+cx.lineTo(90, 70);
+cx.fill();
