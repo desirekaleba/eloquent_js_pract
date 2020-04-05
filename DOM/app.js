@@ -443,31 +443,82 @@
 // });
 
 // Tabs
-function asTabs(node) {
-    let tabs = Array.from(node.children).map(node => {
-        let button = document.createElement("button");
-        button.textContent = node.getAttribute("data-tabname");
-        let tab = {
-            node,
-            button
-        };
-        button.addEventListener("click", () => selectTab(tab));
-        return tab;
-    });
+// function asTabs(node) {
+//     let tabs = Array.from(node.children).map(node => {
+//         let button = document.createElement("button");
+//         button.textContent = node.getAttribute("data-tabname");
+//         let tab = {
+//             node,
+//             button
+//         };
+//         button.addEventListener("click", () => selectTab(tab));
+//         return tab;
+//     });
 
-    let tabList = document.createElement("div");
-    for (let {button} of tabs) {
-        tabList.appendChild(button);
-    }
-    node.insertBefore(tabList, node.firstChild);
+//     let tabList = document.createElement("div");
+//     for (let {button} of tabs) {
+//         tabList.appendChild(button);
+//     }
+//     node.insertBefore(tabList, node.firstChild);
 
-    function selectTab(selectedTab) {
-        for (let tab of tabs) {
-            let selected = tab == selectedTab;
-            tab.node.style.display = selected ? "" : "none";
-            tab.button.style.color = selected ? "red" : "";
-        }
-    }
-    selectTab(tabs[0]);
-}
-asTabs(document.querySelector("tab-panel"));
+//     function selectTab(selectedTab) {
+//         for (let tab of tabs) {
+//             let selected = tab == selectedTab;
+//             tab.node.style.display = selected ? "" : "none";
+//             tab.button.style.color = selected ? "red" : "";
+//         }
+//     }
+//     selectTab(tabs[0]);
+// }
+// asTabs(document.querySelector("tab-panel"));
+
+// SVG
+// let circle = document.querySelector("circle");
+// circle.setAttribute("fill", "cyan");
+
+// canvas
+
+// paths
+// let cx = document.querySelector("canvas").getContext("2d");
+// cx.beginPath();
+// for (let y = 10; y < 100; y +=10) {
+//     cx.moveTo(10, y);
+//     cx.lineTo(90, y);
+// }
+// cx.stroke();
+
+// let cx = document.querySelector("canvas").getContext('2d');
+// cx.beginPath();
+// cx.moveTo(50, 10);
+// cx.lineTo(10, 70);
+// cx.lineTo(90, 70);
+// cx.fill();
+
+// curves
+// let cx = document.querySelector("canvas").getContext("2d");
+// cx.beginPath();
+// cx.moveTo(10, 90);
+// // control = (60, 90) goal = (90, 90)
+// cx.quadraticCurveTo(60, 10, 90, 90);
+// cx.lineTo(60, 10);
+// cx.closePath();
+// cx.stroke();
+
+// bezier Curve
+// let cx = document.getElementsByTagName("canvas")[0].getContext("2d");
+// cx.beginPath();
+// cx.moveTo(10, 90);
+// // control1 = (10, 10) control2 = (90, 10) goal = (50, 90)
+// cx.bezierCurveTo(10, 10, 90, 10, 50, 90);
+// cx.lineTo(90, 10);
+// cx.lineTo(10, 10);
+// cx.closePath();
+// cx.stroke();
+
+let cx = document.getElementsByTagName("canvas")[0].getContext("2d");
+cx.beginPath();
+// center = (50, 50) radius=40 angle = 0 t0 7
+cx.arc(50, 50, 40, 0, 7);
+// center = (150, 50) radius = 40 angle = 0 t0 π½
+cx.arc(150, 50, 40, 0, 0.5 * Math.PI);
+cx.stroke();
