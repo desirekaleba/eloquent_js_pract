@@ -572,19 +572,27 @@
 //     }
 // });
 
+// let cx = document.querySelector("canvas").getContext("2d");
+// let img = document.createElement("img");
+// img.src = "./img/hat.png";
+// let spriteW = 24, spriteH = 30;
+// img.addEventListener("load", () => {
+//     let cycle = 0;
+//     setInterval(() => {
+//         cx.clearRect(0, 0, spriteW, spriteH);
+//         cx.drawImage(img, 
+//             // source rectangle
+//             cycle * spriteW, 0, spriteW, spriteH,
+//             // destination rectangle
+//             0, 0, spriteW, spriteH);
+//         cycle = (cycle + 1) % 8;
+//     }, 120);
+// });
+
+// Transformation
 let cx = document.querySelector("canvas").getContext("2d");
-let img = document.createElement("img");
-img.src = "./img/hat.png";
-let spriteW = 24, spriteH = 30;
-img.addEventListener("load", () => {
-    let cycle = 0;
-    setInterval(() => {
-        cx.clearRect(0, 0, spriteW, spriteH);
-        cx.drawImage(img, 
-            // source rectangle
-            cycle * spriteW, 0, spriteW, spriteH,
-            // destination rectangle
-            0, 0, spriteW, spriteH);
-        cycle = (cycle + 1) % 8;
-    }, 120);
-});
+cx.scale(3, .5);
+cx.beginPath();
+cx.arc(50, 50, 40, 0, 7);
+cx.lineWidth = 3;
+cx.stroke();
