@@ -590,9 +590,24 @@
 // });
 
 // Transformation
+// let cx = document.querySelector("canvas").getContext("2d");
+// cx.scale(3, .5);
+// cx.beginPath();
+// cx.arc(50, 50, 40, 0, 7);
+// cx.lineWidth = 3;
+// cx.stroke();
+
+function flipHorizontally(context, around) {
+    context.translate(around, 0);
+    context.scale(-1, 1);
+    context.translate(-around, 0);
+}
 let cx = document.querySelector("canvas").getContext("2d");
-cx.scale(3, .5);
-cx.beginPath();
-cx.arc(50, 50, 40, 0, 7);
-cx.lineWidth = 3;
-cx.stroke();
+let img = document.createElement("img");
+img.src = "./img/cat.png";
+let spriteW = 24, spriteH = 30;
+img.addEventListener("load", () => {
+    flipHorizontally(cx, 100 + spriteW / 2);
+    cx.drawImage(img, 0, 0, spriteW, spriteH,
+        100, 0, spriteW, spriteH);
+});
