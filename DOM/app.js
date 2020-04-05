@@ -505,12 +505,20 @@
 // cx.stroke();
 
 // bezier Curve
+// let cx = document.getElementsByTagName("canvas")[0].getContext("2d");
+// cx.beginPath();
+// cx.moveTo(10, 90);
+// // control1 = (10, 10) control2 = (90, 10) goal = (50, 90)
+// cx.bezierCurveTo(10, 10, 90, 10, 50, 90);
+// cx.lineTo(90, 10);
+// cx.lineTo(10, 10);
+// cx.closePath();
+// cx.stroke();
+
 let cx = document.getElementsByTagName("canvas")[0].getContext("2d");
 cx.beginPath();
-cx.moveTo(10, 90);
-// control1 = (10, 10) control2 = (90, 10) goal = (50, 90)
-cx.bezierCurveTo(10, 10, 90, 10, 50, 90);
-cx.lineTo(90, 10);
-cx.lineTo(10, 10);
-cx.closePath();
+// center = (50, 50) radius=40 angle = 0 t0 7
+cx.arc(50, 50, 40, 0, 7);
+// center = (150, 50) radius = 40 angle = 0 t0 π½
+cx.arc(150, 50, 40, 0, 0.5 * Math.PI);
 cx.stroke();
