@@ -563,11 +563,28 @@
 // }
 
 // images with canvas
+// let cx = document.querySelector("canvas").getContext("2d");
+// let img = document.createElement("img");
+// img.src = "./img/hat.png";
+// img.addEventListener("load", () => {
+//     for (let x = 10; x < 200; x += 30) {
+//         cx.drawImage(img, x, 10);
+//     }
+// });
+
 let cx = document.querySelector("canvas").getContext("2d");
 let img = document.createElement("img");
 img.src = "./img/hat.png";
+let spriteW = 24, spriteH = 30;
 img.addEventListener("load", () => {
-    for (let x = 10; x < 200; x += 30) {
-        cx.drawImage(img, x, 10);
-    }
+    let cycle = 0;
+    setInterval(() => {
+        cx.clearRect(0, 0, spriteW, spriteH);
+        cx.drawImage(img, 
+            // source rectangle
+            cycle * spriteW, 0, spriteW, spriteH,
+            // destination rectangle
+            0, 0, spriteW, spriteH);
+        cycle = (cycle + 1) % 8;
+    }, 120);
 });
