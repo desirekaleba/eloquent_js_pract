@@ -515,10 +515,99 @@
 // cx.closePath();
 // cx.stroke();
 
-let cx = document.getElementsByTagName("canvas")[0].getContext("2d");
-cx.beginPath();
-// center = (50, 50) radius=40 angle = 0 t0 7
-cx.arc(50, 50, 40, 0, 7);
-// center = (150, 50) radius = 40 angle = 0 t0 π½
-cx.arc(150, 50, 40, 0, 0.5 * Math.PI);
-cx.stroke();
+// let cx = document.getElementsByTagName("canvas")[0].getContext("2d");
+// cx.beginPath();
+// // center = (50, 50) radius=40 angle = 0 t0 7
+// cx.arc(50, 50, 40, 0, 7);
+// // center = (150, 50) radius = 40 angle = 0 t0 π½
+// cx.arc(150, 50, 40, 0, 0.5 * Math.PI);
+// cx.stroke();
+
+// pie chart
+// const results = [
+//     {
+//         name: "Satisfied",
+//         count: 1043,
+//         color: "lightblue"
+//     },
+//     {
+//         name: "Neutral",
+//         count: 563,
+//         color: "lightgreen"
+//     },
+//     {
+//         name: "Unsatisfied",
+//         count: 510,
+//         color: "pink"
+//     },
+//     {
+//         name: "No comment",
+//         count: 175,
+//         color: "silver"
+//     }
+// ];
+
+// let cx = document.querySelector("canvas").getContext("2d");
+// let total = results.reduce((sum, {count}) => sum + count, 0);
+
+// let currentAngle = -0.5 * Math.PI;
+
+// for (let result of results) {
+//     let sliceAngle = (result.count / total) * 2 * Math.PI;
+//     cx.beginPath();
+//     cx.arc(100, 100, 100, currentAngle, currentAngle + sliceAngle);
+//     currentAngle += sliceAngle;
+//     cx.lineTo(100, 100);
+//     cx.fillStyle = result.color;
+//     cx.fill();
+// }
+
+// images with canvas
+// let cx = document.querySelector("canvas").getContext("2d");
+// let img = document.createElement("img");
+// img.src = "./img/hat.png";
+// img.addEventListener("load", () => {
+//     for (let x = 10; x < 200; x += 30) {
+//         cx.drawImage(img, x, 10);
+//     }
+// });
+
+// let cx = document.querySelector("canvas").getContext("2d");
+// let img = document.createElement("img");
+// img.src = "./img/hat.png";
+// let spriteW = 24, spriteH = 30;
+// img.addEventListener("load", () => {
+//     let cycle = 0;
+//     setInterval(() => {
+//         cx.clearRect(0, 0, spriteW, spriteH);
+//         cx.drawImage(img, 
+//             // source rectangle
+//             cycle * spriteW, 0, spriteW, spriteH,
+//             // destination rectangle
+//             0, 0, spriteW, spriteH);
+//         cycle = (cycle + 1) % 8;
+//     }, 120);
+// });
+
+// Transformation
+// let cx = document.querySelector("canvas").getContext("2d");
+// cx.scale(3, .5);
+// cx.beginPath();
+// cx.arc(50, 50, 40, 0, 7);
+// cx.lineWidth = 3;
+// cx.stroke();
+
+function flipHorizontally(context, around) {
+    context.translate(around, 0);
+    context.scale(-1, 1);
+    context.translate(-around, 0);
+}
+let cx = document.querySelector("canvas").getContext("2d");
+let img = document.createElement("img");
+img.src = "./img/cat.png";
+let spriteW = 24, spriteH = 30;
+img.addEventListener("load", () => {
+    flipHorizontally(cx, 100 + spriteW / 2);
+    cx.drawImage(img, 0, 0, spriteW, spriteH,
+        100, 0, spriteW, spriteH);
+});
