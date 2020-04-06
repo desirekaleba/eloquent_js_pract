@@ -216,6 +216,17 @@ CanvasDisplay.prototype.updateViewport = function(state) {
     }
 };
 
+CanvasDisplay.prototype.clearDisplay = function(status) {
+    if (status == "won") {
+        this.cx.fillStyle = "rgb(68, 191, 255)";
+    } else if (status == "lost") {
+        this.cx.fillStyle = "rgb(44, 136, 214)";
+    } else {
+        this.cx.fillStyle = "rgb(52, 166, 251)";
+    }
+    this.cx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+};
+
 function drawActors(actors) {
     return elt("div", {}, ...actors.map(actor => {
         let rect = elt("div", {class: `actor ${actor.type}`});
