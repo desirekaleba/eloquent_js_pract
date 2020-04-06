@@ -192,6 +192,13 @@ class CanvasDisplay {
     }
 }
 
+CanvasDisplay.prototype.syncState = function(state) {
+    this.updateViewport(state);
+    this.clearDisplay(state.status);
+    this.drawBackground(state.level);
+    this.drawActors(state.actors);
+};
+
 function drawActors(actors) {
     return elt("div", {}, ...actors.map(actor => {
         let rect = elt("div", {class: `actor ${actor.type}`});
