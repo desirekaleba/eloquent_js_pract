@@ -573,6 +573,7 @@ async function runGame(plans, Display) {
             runGame(plans, Display);
         else
             alert("Good bye");
+            window.close();
     }
 }
 
