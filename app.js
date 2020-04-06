@@ -4,6 +4,11 @@
 //         console.log(response.headers.get("Content-Type"));
 //     });
 
-fetch("example/data.txt")
-    .then(res => res.text())
-    .then(data => console.log(data));
+// fetch("example/data.txt")
+//     .then(res => res.text())
+//     .then(data => console.log(data));
+
+fetch("example/data.txt", {method: "DELETE"})
+    .then(res => {
+        console.log(res.status);
+    });
