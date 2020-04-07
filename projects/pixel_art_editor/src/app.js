@@ -5,18 +5,22 @@ class Picture {
         this.pixels = pixels;
     }
 
-    static empty (width, height, color) {
+    static empty(width, height, color) {
         let pixels = new Array(width * height).fill(color);
         return new Picture(width, height, pixels);
     }
 
-    pixel (x, y) {
+    pixel(x, y) {
         return this.pixels[x + y * this.width];
     }
 
     draw(pixels) {
         let copy = this.pixels.slice();
-        for (let {x, y, color} of pixels) {
+        for (let {
+                x,
+                y,
+                color
+            } of pixels) {
             copy[x + y * this.width] = color;
         }
         return new Picture(this.width, this.height, copy);
@@ -69,7 +73,7 @@ function drawPicture(picture, canvas, scale) {
     }
 }
 
-PictureCanvas.prototype.mouse = function(downEvent, onDown) {
+PictureCanvas.prototype.mouse = function (downEvent, onDown) {
     if (downEvent.button != 0)
         return;
     let pos = pointerPosition(downEvent, this.dom);
@@ -94,11 +98,11 @@ function pointerPosition(pos, domNode) {
     let rect = domNode.getBoundingClientRect();
     return {
         x: Math.floor((pos.clientX - rect.left) / scale),
-        y: Math.floor((pos.clientY - rect.top) / scale) 
+        y: Math.floor((pos.clientY - rect.top) / scale)
     };
 }
 
-PictureCanvas.prototype.touch = function(startEvent, onDown) {
+PictureCanvas.prototype.touch = function (startEvent, onDown) {
     let pos = pointerPosition(startEvent.touches[0], this.dom);
     let onMove = onDown(pos);
     startEvent.preventDefault();
@@ -123,7 +127,11 @@ PictureCanvas.prototype.touch = function(startEvent, onDown) {
 // The application
 class PixelEditor {
     constructor(state, config) {
-        let {tools, controls, dispatch} = config;
+        let {
+            tools,
+            controls,
+            dispatch
+        } = config;
         this.state = state;
 
         this.canvas = new PictureCanvas(state.picture, pos => {
@@ -148,13 +156,17 @@ class PixelEditor {
 }
 
 class ToolSelect {
-    constructor(state, {tools, dispatch}) {
+    constructor(state, {
+        tools,
+        dispatch
+    }) {
         this.select = elt("select", {
-            onchange: () => dispatch({tool: this.select.value})
+            onchange: () => dispatch({
+                tool: this.select.value
+            })
         }, ...Object.keys(tools).map(name => elt("option", {
-                selected: name == state.tool
-            }, name)
-        ));
+            selected: name == state.tool
+        }, name)));
         this.dom = elt("label", null, "🖌 Tool: ", this.select);
     }
     syncState(state) {
@@ -163,11 +175,15 @@ class ToolSelect {
 }
 
 class ColorSelect {
-    constructor(state, {dispatch}) {
+    constructor(state, {
+        dispatch
+    }) {
         this.input = elt("input", {
             type: "color",
             value: state.color,
-            onchange: () => dispatch({color: this.input.value})
+            onchange: () => dispatch({
+                color: this.input.value
+            })
         });
         this.dom = elt("label", null, "🎨 color : ", this.input);
     }
@@ -177,9 +193,18 @@ class ColorSelect {
 }
 
 function draw(pos, state, dispatch) {
-    function drawPixel({x, y}, state) {
-        let drawn = {x, y, color: state.color};
-        dispatch({picture: state.picture.draw([drawn])});
+    function drawPixel({
+        x,
+        y
+    }, state) {
+        let drawn = {
+            x,
+            y,
+            color: state.color
+        };
+        dispatch({
+            picture: state.picture.draw([drawn])
+        });
     }
     drawPixel(pos, state);
     return drawPixel;
@@ -194,11 +219,65 @@ function rectangle(start, state, dispatch) {
         let drawn = [];
         for (let y = yStart; y <= yEnd; y++) {
             for (let x = xStart; x <= xEnd; x++) {
-                drawn.push({x, y, color: state.color});
+                drawn.push({
+                    x,
+                    y,
+                    color: state.color
+                });
             }
         }
-        dispatch({picture: state.picture.draw(drawn)});
+        dispatch({
+            picture: state.picture.draw(drawn)
+        });
     }
     drawRectangle(start);
     return drawRectangle;
+}
+
+const around = [{
+        dx: -1,
+        dy: 0
+    }, {
+        dx: 1,
+        dy: 0
+    },
+    {
+        dx: 0,
+        dy: -1
+    }, {
+        dx: 0,
+        dy: 1
+    }
+];
+
+function fill({
+    x,
+    y
+}, state, dispatch) {
+    let targetColor = state.picture.pixel(x, y);
+    let drawn = [{
+        x,
+        y,
+        color: state.color
+    }];
+    for (let done = 0; done < drawn.length; done++) {
+        for (let {
+                dx,
+                dy
+            } of around) {
+            let x = drawn[done].x + dx,
+                y = drawn[done].y + dy;
+            if (x >= 0 && x < state.picture.width &&
+                y >= 0 && y < state.picture.height &&
+                state.picture.pixel(x, y) == targetColor &&
+                !drawn.some(p => p.x == x && p.y == y)) {
+                drawn.push({
+                    x,
+                    y,
+                    color: state.color
+                });
+            }
+        }
+    }
+    dispatch({picture: state.picture.draw(drawn)});
 }
