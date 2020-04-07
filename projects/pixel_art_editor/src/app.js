@@ -22,3 +22,7 @@ class Picture {
         return new Picture(this.width, this.height, copy);
     }
 }
+
+function updateState(state, action) {
+    return Object.assign({}, state, action);
+}
