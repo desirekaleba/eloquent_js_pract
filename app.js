@@ -158,3 +158,19 @@
 //         list.textContent = "";
 //         note.value = "";
 //     });
+
+// content negotiation to https://eloquentjavascript.net/author
+let url = "https://eloquentjavascript.net/author";
+let accept_types = [
+    "text/plain",
+    "text/html",
+    "application/json"
+];
+
+async function displayTypes(){
+    for (let accept_type of accept_types) {
+        let response = await fetch(url, {headers: {accept: accept_type}});
+        console.log(`${accept_type} : ${await response.text()}`);
+    }
+}
+displayTypes();
