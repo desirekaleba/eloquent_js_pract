@@ -79,18 +79,82 @@
 // });
 
 // reading a file
-let input_file = document.querySelector("input");
-let output = document.querySelector("#output");
+// let input_file = document.querySelector("input");
+// let output = document.querySelector("#output");
 
-input_file.addEventListener("change", () => {
-    for (let file of Array.from(input_file.files)) {
-        let reader = new FileReader();
-        reader.addEventListener("load", () => {
-            if (file.type != "text/html")
-            console.log("Not an html file");
-            else
-            output.textContent = reader.result;
-        });
-        reader.readAsText(file);
-    }
-});
+// input_file.addEventListener("change", () => {
+//     for (let file of Array.from(input_file.files)) {
+//         let reader = new FileReader();
+//         reader.addEventListener("load", () => {
+//             if (file.type != "text/html")
+//             console.log("Not an html file");
+//             else
+//             output.textContent = reader.result;
+//         });
+//         reader.readAsText(file);
+//     }
+// });
+
+// storing data client side using local storage
+// localStorage.setItem("username", "desirekaleba");
+// console.log(localStorage.getItem("username"));
+// localStorage.removeItem("username");
+// console.log(localStorage.getItem("username"));
+
+// crude note-taking application
+// let list = document.querySelector("select");
+// let note = document.querySelector("textarea");
+
+// let state;
+
+// function setState(newState) {
+//     list.textContent = "";
+//     for (let name of Object.keys(newState.notes)) {
+//         let option = document.createElement("option");
+//         option.textContent = name;
+//         if (newState.selected == name)
+//             option.selected == true;
+//         list.appendChild(option);
+//     }
+//     note.value = newState.notes[newState.selected];
+
+//     localStorage.setItem("Notes", JSON.stringify(newState));
+//     state = newState;
+// }
+
+// setState(JSON.parse(localStorage.getItem("Notes")) || {
+//     notes: {
+//         "shopping list": "Carrots\nRaisins"
+//     },
+//     selected: "shopping list"
+// });
+
+// list.addEventListener("change", () => {
+//     setState({notes: state.notes, selected: list.value});
+// });
+
+// note.addEventListener("change", () => {
+//     setState({
+//         notes: Object.assign({}, state.notes, 
+//             {[state.selected]: note.value}),
+//         selected: state.selected
+//     });
+// });
+
+// document.querySelector("#add")
+//     .addEventListener("click", () => {
+//         let name = prompt("Note name");
+//         if (name) {
+//             setState({
+//                 notes: Object.assign({}, state.notes, {[name]: ""}),
+//                 selected: name
+//             });
+//         }
+//     });
+
+// document.querySelector("#delete")
+//     .addEventListener("click", () => {
+//         localStorage.removeItem("Notes");
+//         list.textContent = "";
+//         note.value = "";
+//     });
