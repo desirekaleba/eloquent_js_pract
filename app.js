@@ -79,18 +79,24 @@
 // });
 
 // reading a file
-let input_file = document.querySelector("input");
-let output = document.querySelector("#output");
+// let input_file = document.querySelector("input");
+// let output = document.querySelector("#output");
 
-input_file.addEventListener("change", () => {
-    for (let file of Array.from(input_file.files)) {
-        let reader = new FileReader();
-        reader.addEventListener("load", () => {
-            if (file.type != "text/html")
-            console.log("Not an html file");
-            else
-            output.textContent = reader.result;
-        });
-        reader.readAsText(file);
-    }
-});
+// input_file.addEventListener("change", () => {
+//     for (let file of Array.from(input_file.files)) {
+//         let reader = new FileReader();
+//         reader.addEventListener("load", () => {
+//             if (file.type != "text/html")
+//             console.log("Not an html file");
+//             else
+//             output.textContent = reader.result;
+//         });
+//         reader.readAsText(file);
+//     }
+// });
+
+// storing data client side using local storage
+localStorage.setItem("username", "desirekaleba");
+console.log(localStorage.getItem("username"));
+localStorage.removeItem("username");
+console.log(localStorage.getItem("username"));
