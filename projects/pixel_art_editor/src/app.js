@@ -311,7 +311,7 @@ class SaveButton {
 }
 
 class LoadButton {
-    constructor(_, dispatch) {
+    constructor(_, {dispatch}) {
         this.dom = elt("button", {
             onclick: () => startLoad(dispatch)
         }, "📁 Load");
@@ -357,7 +357,7 @@ function pictureFromImage(image) {
         return n.toString(16).padStart(2, "0");
     }
     for (let i = 0; i < data.length; i += 4) {
-        let {r, g, b} = data.slice(i, i + 3);
+        let [r, g, b] = data.slice(i, i + 3);
         pixels.push("#" + hex(r) + hex(g) + hex(b));
     }
     return new Picture(width, height, pixels);
@@ -394,3 +394,33 @@ class UndoButton {
         this.dom.disabled = state.done.length == 0;
     }
 }
+
+const startState = {
+    tool: "draw",
+    color: "#000000",
+    picture: Picture.empty(60, 30, "#f0f0f0"),
+    done: [],
+    doneAt: 0
+};
+
+const baseTools = {draw, fill, rectangle, pick};
+
+const baseControls = [
+    ToolSelect, ColorSelect, SaveButton, LoadButton, UndoButton
+];
+
+function startPixelEditor({state = startState, tools = baseTools, controls = baseControls}) {
+    let app = new PixelEditor(state, {
+        tools, 
+        controls,
+        dispatch(action) {
+            state = historyUpdateState(state, action);
+            app.syncState(state);
+        }
+    });
+    return app.dom;
+}
+
+// getting it to the screen
+document.querySelector("div")
+    .appendChild(startPixelEditor({}));
