@@ -160,17 +160,29 @@
 //     });
 
 // content negotiation to https://eloquentjavascript.net/author
-let url = "https://eloquentjavascript.net/author";
-let accept_types = [
-    "text/plain",
-    "text/html",
-    "application/json"
-];
+// let url = "https://eloquentjavascript.net/author";
+// let accept_types = [
+//     "text/plain",
+//     "text/html",
+//     "application/json"
+// ];
 
-async function displayTypes(){
-    for (let accept_type of accept_types) {
-        let response = await fetch(url, {headers: {accept: accept_type}});
-        console.log(`${accept_type} : ${await response.text()}`);
+// async function displayTypes(){
+//     for (let accept_type of accept_types) {
+//         let response = await fetch(url, {headers: {accept: accept_type}});
+//         console.log(`${accept_type} : ${await response.text()}`);
+//     }
+// }
+// displayTypes();
+
+// A javascript workbench
+document.querySelector("#button").addEventListener("click", () => {
+    let code = document.querySelector("#code").value;
+    let outputNode = document.querySelector("#output");
+    try {
+        let result = Function(code)();
+        outputNode.innerText = String(result);
+    } catch (e) {
+        outputNode.innerText = "Error: " + e;
     }
-}
-displayTypes();
+});
