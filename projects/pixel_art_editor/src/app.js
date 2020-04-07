@@ -97,3 +97,25 @@ function pointerPosition(pos, domNode) {
         y: Math.floor((pos.clientY - rect.top) / scale) 
     };
 }
+
+PictureCanvas.prototype.touch = function(startEvent, onDown) {
+    let pos = pointerPosition(startEvent.touches[0], this.dom);
+    let onMove = onDown(pos);
+    startEvent.preventDefault();
+    if (!onMove)
+        return;
+    let move = moveEvent => {
+        let newPos = pointerPosition(moveEvent.touches[0], this.dom);
+        if (newPos.x == pos.x && newPos.y == pos.y)
+            return;
+        pos = newPos;
+        onMove(newPos);
+    };
+
+    let end = () => {
+        this.dom.removeEventListener("touchmove", move);
+        this.dom.removeEventListener("touchend", move);
+    };
+    this.dom.addEventListener("touchmove", move);
+    this.dom.addEventListener("touchend", end);
+};
