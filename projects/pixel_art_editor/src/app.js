@@ -281,3 +281,7 @@ function fill({
     }
     dispatch({picture: state.picture.draw(drawn)});
 }
+
+function pick(pos, state, dispatch) {
+    dispatch({color: state.picture.pixel(pos.x, pos.y)});
+}
