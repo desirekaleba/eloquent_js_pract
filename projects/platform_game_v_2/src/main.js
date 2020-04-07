@@ -571,9 +571,10 @@ async function runGame(plans, Display) {
         alert("Game over");
         if (confirm("Restart ?") == true)
             runGame(plans, Display);
-        else
+        else {
             alert("Good bye");
             window.close();
+        }
     }
 }
 
