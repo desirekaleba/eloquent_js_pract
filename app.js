@@ -17,9 +17,19 @@
 // });
 
 // writeFile
-const { writeFile } = require("fs");
-writeFile("file.txt", "Node has visited you", err => {
-    if (err)
-        console.log(`Failed to write file: ${err}`);
-    else console.log("File written");
-});
+// const { writeFile } = require("fs");
+// writeFile("file.txt", "Node has visited you", err => {
+//     if (err)
+//         console.log(`Failed to write file: ${err}`);
+//     else console.log("File written");
+// });
+
+// readFile as a promises,this help avoid the downsides of callbacks
+const { readFile } = require("fs").promises;
+
+readFile("file.txt", "utf-8")
+    .then(text => {
+        console.log(`File contains : ${text}`);
+    }).catch(e => {
+        throw e;
+    });
