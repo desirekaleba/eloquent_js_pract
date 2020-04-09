@@ -25,11 +25,15 @@
 // });
 
 // readFile as a promises,this help avoid the downsides of callbacks
-const { readFile } = require("fs").promises;
+// const { readFile } = require("fs").promises;
 
-readFile("file.txt", "utf-8")
-    .then(text => {
-        console.log(`File contains : ${text}`);
-    }).catch(e => {
-        throw e;
-    });
+// readFile("file.txt", "utf-8")
+//     .then(text => {
+//         console.log(`File contains : ${text}`);
+//     }).catch(e => {
+//         throw e;
+//     });
+
+// synchronous version of readFile, readFileSync
+const { readFileSync } = require("fs");
+console.log("The file contains: ", readFileSync("file.txt", "utf-8"));
