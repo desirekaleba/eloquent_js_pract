@@ -55,13 +55,34 @@
 // to act as http client, we use the request function
 // of the http module
 
+// const { request } = require("http");
+// let requestStream = request({
+//     hostname: "eloquentjavascript.net",
+//     path: "/20_node.html",
+//     method: "GET",
+//     headers: {Accept: "text/html"}
+// }, response => {
+//     console.log("Server responded with status code", response.statusCode);
+// });
+// requestStream.end();
+
+// streams
+// server
+const { createServer } = require('http');
+createServer((request, response) => {
+    response.writeHead(200, {"Content-Type": "text/plain"});
+    request.on("data", chunk => 
+        response.write(chunk.toString().toUpperCase()));
+    request.on("end", () => response.end());
+}).listen(8000, () => console.log("listening on port: 8000"));
+
+// client
 const { request } = require("http");
-let requestStream = request({
-    hostname: "eloquentjavascript.net",
-    path: "/20_node.html",
-    method: "GET",
-    headers: {Accept: "text/html"}
+request({
+    hostname: "localhost",
+    port: 8000,
+    method: "POST"
 }, response => {
-    console.log("Server responded with status code", response.statusCode);
-});
-requestStream.end();
+    response.on("data", chunk => 
+        process.stdout.write(chunk.toString()));
+}).end("Hello server");
