@@ -55,3 +55,11 @@ router.add("GET", talkPath, async (server, title) => {
         };
     }
 });
+
+router.add("DELETE", talkPath, async (server, title) => {
+    if (title in server.talks) {
+        delete server.talks[title];
+        server.updated();
+    }
+    return { status: 204 };
+});
