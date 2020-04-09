@@ -1,0 +1,14 @@
+{
+  "name": "skill_sharing_server",
+  "version": "1.0.0",
+  "description": "A skill sharing website's server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Desire Kaleba",
+  "license": "MIT",
+  "dependencies": {
+    "ecstatic": "^4.1.4"
+  }
+}
