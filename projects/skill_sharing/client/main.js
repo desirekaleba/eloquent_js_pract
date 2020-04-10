@@ -42,3 +42,7 @@ function fetchOk(url, options) {
 function talkURL(title) {
     return "talks/" + encodeURIComponent(title);
 }
+
+function reportError(error) {
+    alert(String(error));
+}
