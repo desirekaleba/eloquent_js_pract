@@ -11,7 +11,8 @@ class SkillShareServer {
         this.version = 0;
         this.waiting = [];
 
-        let fileServer = ecstatic({root: "../client"});
+        let client_path = __dirname.slice(0, __dirname.lastIndexOf("\\")).replace(/\\/g, "/") + "/client";
+        let fileServer = ecstatic(client_path, {autoIndex: true});
         this.server = createServer((request, response) =>{
             let resolved = router.resolve(this, request);
             if (resolved) {
