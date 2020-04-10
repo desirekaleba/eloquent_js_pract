@@ -11,7 +11,8 @@ class SkillShareServer {
         this.version = 0;
         this.waiting = [];
 
-        let fileServer = ecstatic({root: "./public"});
+        let client_path = __dirname.slice(0, __dirname.lastIndexOf("\\")).replace(/\\/g, "/") + "/client";
+        let fileServer = ecstatic(client_path, {autoIndex: true});
         this.server = createServer((request, response) =>{
             let resolved = router.resolve(this, request);
             if (resolved) {
@@ -170,11 +171,29 @@ SkillShareServer.prototype.waitForChanges = function(time) {
     });
 };
 
+// using a json file to store data
+const { readFileSync, writeFile } = require("fs");
+
+const fileName = "./talks.json";
+
+function loadTalks() {
+    let json;
+    try {
+        json = JSON.parse(readFileSync(fileName, "UTF-8"));
+    } catch (e) {
+        json = {};
+    }
+    return Object.assign(Object.create(null), json);
+}
 SkillShareServer.prototype.updated = function() {
     this.version++;
     let response = this.talkResponse();
     this.waiting.forEach(resolve => resolve(response));
     this.waiting = [];
+
+    writeFile(fileName, JSON.stringify(this.talks), e => {
+        if (e) throw e;
+    });
 };
 
-new SkillShareServer(Object.create(null)).start(8000);
+new SkillShareServer(loadTalks()).start(8000);
