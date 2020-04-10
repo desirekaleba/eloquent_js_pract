@@ -87,3 +87,9 @@ function renderTalk(talk, dispatch) {
                 type: "submit"
             }, "Add comment")));
 }
+
+function renderComment(comment) {
+    return elt("p", {className: "comment"},
+                elt("strong", null, comment.author),
+                ": ", comment.message);
+}
