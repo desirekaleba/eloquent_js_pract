@@ -38,3 +38,7 @@ function fetchOk(url, options) {
                         throw new Error(response.statusText);
                 });
 }
+
+function talkURL(title) {
+    return "talks/" + encodeURIComponent(title);
+}
