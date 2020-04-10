@@ -47,6 +47,19 @@ function reportError(error) {
     alert(String(error));
 }
 
+function elt(name, attrs, ...children) {
+    let dom = document.createElement(name);
+
+    for (let attr of Object.keys(attrs)) {
+        dom.setAttribute(attr, attrs[attr]);
+    }
+
+    for (let child of children) {
+        dom.appendChild(child);
+    }
+    return dom;
+}
+
 function renderUserField(name, dispatch) {
     return elt("label", {}, "Your name: ", elt("input", {
         type: "text",
@@ -158,3 +171,23 @@ class SkillShareApp {
         }
     }
 }
+
+function runApp() {
+    let user = localStorage.getItem("username") || "Deska";
+    let state, app;
+    function dispatch(action) {
+        state = handleAction(state, action);
+        app.syncState(state);
+    }
+
+    pollTalks(talks => {
+        if (!app) {
+            state = {user, talks};
+            app = new SkillShareApp(state, dispatch);
+            document.body.appendChild(app.dom);
+        } else {
+            dispatch({type: "setTalks", talks});
+        }
+    }).catch(reportError);
+}
+runApp();
