@@ -1,0 +1,23 @@
+{
+    "Chat monitoring": {
+        "title": "Chat monitoring",
+        "presenter": "Deska",
+        "summary": "we are going to talk about active chat monitoring and suspicious chat detection over the internet",
+        "comments": [{
+            "author": "Gloire",
+            "message": "When and where"
+        }, {
+            "author": "Deska",
+            "message": "That will be in our main room at 1:00pm"
+        }, {
+            "author": "Gloire",
+            "message": "Okay thanks"
+        }, {
+            "author": "Deska",
+            "message": "You're welcome"
+        }, {
+            "author": "Gloire",
+            "message": "cool"
+        }]
+    }
+}
