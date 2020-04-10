@@ -11,7 +11,7 @@ class SkillShareServer {
         this.version = 0;
         this.waiting = [];
 
-        let fileServer = ecstatic({root: "./public"});
+        let fileServer = ecstatic({root: "../client"});
         this.server = createServer((request, response) =>{
             let resolved = router.resolve(this, request);
             if (resolved) {
