@@ -28,3 +28,13 @@ function handleAction(state, action) {
     }
     return state;
 }
+
+function fetchOk(url, options) {
+    return fetch(url, options)
+                .then(response => {
+                    if (response.status < 400)
+                        return response;
+                    else
+                        throw new Error(response.statusText);
+                });
+}
