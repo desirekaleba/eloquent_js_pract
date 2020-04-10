@@ -46,3 +46,13 @@ function talkURL(title) {
 function reportError(error) {
     alert(String(error));
 }
+
+function renderUserField(name, dispatch) {
+    return elt("label", {}, "Your name: ", elt("input", {
+        type: "text",
+        value: name,
+        onchange(event) {
+            dispatch({type: "setUser", user: event.target.value});
+        }
+    }));
+}
