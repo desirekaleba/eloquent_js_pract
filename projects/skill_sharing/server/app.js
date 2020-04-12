@@ -196,4 +196,5 @@ SkillShareServer.prototype.updated = function() {
     });
 };
 
-new SkillShareServer(loadTalks()).start(8000);
+const PORT = process.env.PORT || 8000;
+new SkillShareServer(loadTalks()).start(PORT);
